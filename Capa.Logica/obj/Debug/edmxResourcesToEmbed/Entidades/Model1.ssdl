@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClientesDatosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PER_PERSONA">
+    <Key>
+      <PropertyRef Name="PER_Persona" />
+    </Key>
+    <Property Name="PER_Persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PER_PrimerNombre" Type="varchar" MaxLength="30" />
+    <Property Name="PER_SegundoNombre" Type="varchar" MaxLength="30" />
+    <Property Name="PER_PrimerApellido" Type="varchar" MaxLength="30" />
+    <Property Name="PER_SegundoApellido" Type="varchar" MaxLength="30" />
+    <Property Name="PER_Identificacion" Type="varchar" MaxLength="20" />
+    <Property Name="PER_FechaNacimiento" Type="date" />
+    <Property Name="PER_Telefono" Type="varchar" MaxLength="8" />
+    <Property Name="PER_Departamento" Type="varchar" MaxLength="50" />
+    <Property Name="PER_Municipio" Type="varchar" MaxLength="50" />
+    <Property Name="PER_Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="PER_NIT" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Function Name="spConsulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spConsultaUno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDNIT" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ClientesDatosModelStoreContainer">
+    <EntitySet Name="PER_PERSONA" EntityType="Self.PER_PERSONA" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

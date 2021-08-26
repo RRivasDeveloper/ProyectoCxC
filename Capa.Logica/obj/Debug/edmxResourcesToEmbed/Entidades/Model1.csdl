@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ClientesDatosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ClientesEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="spDatosPrincipales" ReturnType="Collection(ClientesDatosModel.spDatosPrincipales_Result)" />
+    <EntitySet Name="PER_PERSONA" EntityType="ClientesDatosModel.PER_PERSONA" />
+    <FunctionImport Name="spConsulta" ReturnType="Collection(ClientesDatosModel.spConsulta_Result)" />
+    <FunctionImport Name="spConsultaUno" ReturnType="Collection(ClientesDatosModel.spConsultaUno_Result)">
+      <Parameter Name="IDNIT" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spDatosPrincipales_Result">
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ID" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="TELEFONO" Nullable="true" Precision="8" Scale="0" />
+    <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="PER_PERSONA">
+    <Key>
+      <PropertyRef Name="PER_Persona1" />
+    </Key>
+    <Property Name="PER_Persona1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PER_PrimerNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PER_SegundoNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PER_PrimerApellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PER_SegundoApellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PER_Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PER_FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="PER_Telefono" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="PER_Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PER_Municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PER_Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PER_NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="spConsulta_Result">
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spConsultaUno_Result">
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+  </ComplexType>
+</Schema>

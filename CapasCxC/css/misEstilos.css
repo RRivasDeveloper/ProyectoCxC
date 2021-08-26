@@ -1,0 +1,43 @@
+﻿.tabla {
+    width: 80%;
+    opacity: 0.90;
+    float: right;
+    background-color: antiquewhite;
+    overflow: scroll;
+    height: 60%;
+    
+}
+.gvClientes {
+    width: 80%;
+    opacity: 0.90;
+    float: right;
+    background-color: antiquewhite;
+    overflow: scroll;
+    height: 60%;
+}
+
+.fondo {
+    background-image: url('../../img/Logo.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.barralateral {
+    width: 20%;
+    height: 100%;
+    float: left;
+    /*min-width:160px;*/
+   
+}
+
+.filaTitle {
+    background-color: sienna;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+/*
+saddlebrown, darkgoldenrod, maroon
+*/

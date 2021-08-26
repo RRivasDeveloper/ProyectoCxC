@@ -1,0 +1,13 @@
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\Capa.Logica.dll.config
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\Capa.Logica.dll
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\Capa.Logica.pdb
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\EntityFramework.dll
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\EntityFramework.SqlServer.dll
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\System.Data.SqlServerCe.dll
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\EntityFramework.xml
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\bin\Debug\EntityFramework.SqlServer.xml
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.AssemblyReference.cache
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CoreCompileInputs.cache
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\obj\Debug\Capa.Logica.dll
+E:\Clases UMG\Analisis2\Proyecto\Capas\Capa.Logica\obj\Debug\Capa.Logica.pdb
