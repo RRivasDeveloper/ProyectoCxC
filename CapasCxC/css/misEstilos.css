@@ -5,8 +5,8 @@
     background-color: antiquewhite;
     overflow: scroll;
     height: 60%;
-    
 }
+
 .gvClientes {
     width: 80%;
     opacity: 0.90;
@@ -23,12 +23,18 @@
     height: 100vh;
 }
 
+.iconos {
+    width :5rem; 
+    height :5rem;
+    border-radius: 50% !important;
+    margin-right: 0.5rem !important;
+}
+
 .barralateral {
     width: 20%;
     height: 100%;
     float: left;
     /*min-width:160px;*/
-   
 }
 
 .filaTitle {
@@ -38,6 +44,20 @@
     top: 0;
     z-index: 10;
 }
+
+.centrarTabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letrasBlancas {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: white;
+}
+
 /*
 saddlebrown, darkgoldenrod, maroon
 */

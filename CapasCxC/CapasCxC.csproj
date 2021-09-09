@@ -169,7 +169,24 @@
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="css\bootstrap.rtl.css.map" />
     <Content Include="css\bootstrap.rtl.min.css.map" />
+    <Content Include="img\agregarCliente.png" />
+    <Content Include="img\borrarCliente.png" />
+    <Content Include="img\borrarClienteAzul.png" />
     <Content Include="img\buscar.png" />
+    <Content Include="img\buscarCliente.png" />
+    <Content Include="img\Consulta.png" />
+    <Content Include="img\editarCliente.png" />
+    <Content Include="img\editarCliente1.png" />
+    <Content Include="img\imprimir.png" />
+    <Content Include="img\ingresarCliente.png" />
+    <Content Include="img\ingreso.png" />
+    <Content Include="img\moroso.png" />
+    <Content Include="img\pagos.png" />
+    <Content Include="img\Saldo.png" />
+    <Content Include="img\Salir.png" />
+    <Content Include="Interfaces\Clientes\frmBase.aspx" />
+    <Content Include="Interfaces\Clientes\frmCrudCliente.aspx" />
+    <Content Include="Interfaces\Clientes\frmInicio.aspx" />
     <Content Include="js\bootstrap.bundle.js.map" />
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.esm.js.map" />
@@ -255,6 +272,27 @@
     </Compile>
     <Compile Include="Interfaces\Clientes\fmrClientes.aspx.designer.cs">
       <DependentUpon>fmrClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmBase.aspx.cs">
+      <DependentUpon>frmBase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmBase.aspx.designer.cs">
+      <DependentUpon>frmBase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmCrudCliente.aspx.cs">
+      <DependentUpon>frmCrudCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmCrudCliente.aspx.designer.cs">
+      <DependentUpon>frmCrudCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmInicio.aspx.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Clientes\frmInicio.aspx.designer.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

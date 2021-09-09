@@ -43,8 +43,14 @@ namespace CapasCxC.Interfaces.Clientes
         protected void OrdenarPagina(object sender, GridViewSortEventArgs e)
         {
 
+            
+                
+
+            
 
         }
+
+
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
@@ -63,6 +69,21 @@ namespace CapasCxC.Interfaces.Clientes
                 gvClientes.DataBind();
             }
            
+        }
+
+        protected void Consultas_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("http://www.google.com", true);
+        }
+
+        protected void inicioLogo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("frmInicio.aspx", true);
+        }
+
+        protected void btn_CrudClientes_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("frmCrudCliente.aspx", true); 
         }
 
 
