@@ -1,27 +1,254 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ClientesDatosModelStoreContainer" CdmEntityContainer="ClientesEntities">
-    <EntitySetMapping Name="PER_PERSONA">
-      <EntityTypeMapping TypeName="ClientesDatosModel.PER_PERSONA">
-        <MappingFragment StoreEntitySet="PER_PERSONA">
-          <ScalarProperty Name="PER_NIT" ColumnName="PER_NIT" />
-          <ScalarProperty Name="PER_Direccion" ColumnName="PER_Direccion" />
-          <ScalarProperty Name="PER_Municipio" ColumnName="PER_Municipio" />
-          <ScalarProperty Name="PER_Departamento" ColumnName="PER_Departamento" />
-          <ScalarProperty Name="PER_Telefono" ColumnName="PER_Telefono" />
-          <ScalarProperty Name="PER_FechaNacimiento" ColumnName="PER_FechaNacimiento" />
-          <ScalarProperty Name="PER_Identificacion" ColumnName="PER_Identificacion" />
-          <ScalarProperty Name="PER_SegundoApellido" ColumnName="PER_SegundoApellido" />
-          <ScalarProperty Name="PER_PrimerApellido" ColumnName="PER_PrimerApellido" />
-          <ScalarProperty Name="PER_SegundoNombre" ColumnName="PER_SegundoNombre" />
-          <ScalarProperty Name="PER_PrimerNombre" ColumnName="PER_PrimerNombre" />
-          <ScalarProperty Name="PER_Persona1" ColumnName="PER_Persona" />
+  <EntityContainerMapping StorageEntityContainer="CxCDBStoreContainer" CdmEntityContainer="CxCEntities1">
+    <EntitySetMapping Name="CXC_CLIENTE">
+      <EntityTypeMapping TypeName="CxCDB.CXC_CLIENTE">
+        <MappingFragment StoreEntitySet="CXC_CLIENTE">
+          <ScalarProperty Name="CLI_Cliente" ColumnName="CLI_Cliente" />
+          <ScalarProperty Name="TPP_TipoPersona" ColumnName="TPP_TipoPersona" />
+          <ScalarProperty Name="PER_Persona" ColumnName="PER_Persona" />
+          <ScalarProperty Name="RRH_Empleado" ColumnName="RRH_Empleado" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="spConsulta" FunctionName="ClientesDatosModel.Store.spConsulta">
+    <EntitySetMapping Name="CXC_CREDITO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_CREDITO">
+        <MappingFragment StoreEntitySet="CXC_CREDITO">
+          <ScalarProperty Name="CRE_Credito" ColumnName="CRE_Credito" />
+          <ScalarProperty Name="FAC_Factura" ColumnName="FAC_Factura" />
+          <ScalarProperty Name="DCR_DiasCredito" ColumnName="DCR_DiasCredito" />
+          <ScalarProperty Name="CRE_FechaCredito" ColumnName="CRE_FechaCredito" />
+          <ScalarProperty Name="CRE_MontoCredito" ColumnName="CRE_MontoCredito" />
+          <ScalarProperty Name="CRE_MontoPagado" ColumnName="CRE_MontoPagado" />
+          <ScalarProperty Name="CRE_Recargos" ColumnName="CRE_Recargos" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_DETALLEFACTURA">
+      <EntityTypeMapping TypeName="CxCDB.CXC_DETALLEFACTURA">
+        <MappingFragment StoreEntitySet="CXC_DETALLEFACTURA">
+          <ScalarProperty Name="DTF_DetalleFactura" ColumnName="DTF_DetalleFactura" />
+          <ScalarProperty Name="DTF_Cantidad" ColumnName="DTF_Cantidad" />
+          <ScalarProperty Name="FAC_Factura" ColumnName="FAC_Factura" />
+          <ScalarProperty Name="PRD_Producto" ColumnName="PRD_Producto" />
+          <ScalarProperty Name="PRD_PrecioVentan" ColumnName="PRD_PrecioVentan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_DIASCREDITO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_DIASCREDITO">
+        <MappingFragment StoreEntitySet="CXC_DIASCREDITO">
+          <ScalarProperty Name="DCR_DiasCredito" ColumnName="DCR_DiasCredito" />
+          <ScalarProperty Name="DCR_CantidadDias" ColumnName="DCR_CantidadDias" />
+          <ScalarProperty Name="DCR_Descripcion" ColumnName="DCR_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_EMPRESA">
+      <EntityTypeMapping TypeName="CxCDB.CXC_EMPRESA">
+        <MappingFragment StoreEntitySet="CXC_EMPRESA">
+          <ScalarProperty Name="EMP_Empresa" ColumnName="EMP_Empresa" />
+          <ScalarProperty Name="EMP_Nombre" ColumnName="EMP_Nombre" />
+          <ScalarProperty Name="EMP_Direccion" ColumnName="EMP_Direccion" />
+          <ScalarProperty Name="EMP_Telefono" ColumnName="EMP_Telefono" />
+          <ScalarProperty Name="EMP_NIT" ColumnName="EMP_NIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_ESTADOCREDITO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_ESTADOCREDITO">
+        <MappingFragment StoreEntitySet="CXC_ESTADOCREDITO">
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_FACTURA">
+      <EntityTypeMapping TypeName="CxCDB.CXC_FACTURA">
+        <MappingFragment StoreEntitySet="CXC_FACTURA">
+          <ScalarProperty Name="FAC_Factura" ColumnName="FAC_Factura" />
+          <ScalarProperty Name="FAC_Serie" ColumnName="FAC_Serie" />
+          <ScalarProperty Name="FAC_Numero" ColumnName="FAC_Numero" />
+          <ScalarProperty Name="FAC_Fecha" ColumnName="FAC_Fecha" />
+          <ScalarProperty Name="FAC_TOTAL" ColumnName="FAC_TOTAL" />
+          <ScalarProperty Name="FAC_Certificado" ColumnName="FAC_Certificado" />
+          <ScalarProperty Name="FAC_FirmaElectronica" ColumnName="FAC_FirmaElectronica" />
+          <ScalarProperty Name="EMP_Empresa" ColumnName="EMP_Empresa" />
+          <ScalarProperty Name="CLI_Cliente" ColumnName="CLI_Cliente" />
+          <ScalarProperty Name="TPA_TipoPago" ColumnName="TPA_TipoPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_FORMAPAGO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_FORMAPAGO">
+        <MappingFragment StoreEntitySet="CXC_FORMAPAGO">
+          <ScalarProperty Name="FRM_FormaPago" ColumnName="FRM_FormaPago" />
+          <ScalarProperty Name="FRM_Descripcion" ColumnName="FRM_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_PERSONA">
+      <EntityTypeMapping TypeName="CxCDB.CXC_PERSONA">
+        <MappingFragment StoreEntitySet="CXC_PERSONA">
+          <ScalarProperty Name="PER_Persona" ColumnName="PER_Persona" />
+          <ScalarProperty Name="PER_PrimerNombre" ColumnName="PER_PrimerNombre" />
+          <ScalarProperty Name="PER_SegundoNombre" ColumnName="PER_SegundoNombre" />
+          <ScalarProperty Name="PER_PrimerApellido" ColumnName="PER_PrimerApellido" />
+          <ScalarProperty Name="PER_SegundoApellido" ColumnName="PER_SegundoApellido" />
+          <ScalarProperty Name="PER_Identificacion" ColumnName="PER_Identificacion" />
+          <ScalarProperty Name="PER_FechaNacimiento" ColumnName="PER_FechaNacimiento" />
+          <ScalarProperty Name="PER_Telefono" ColumnName="PER_Telefono" />
+          <ScalarProperty Name="PER_Departamento" ColumnName="PER_Departamento" />
+          <ScalarProperty Name="PER_Municipio" ColumnName="PER_Municipio" />
+          <ScalarProperty Name="PER_Direccion" ColumnName="PER_Direccion" />
+          <ScalarProperty Name="PER_NIT" ColumnName="PER_NIT" />
+          <ScalarProperty Name="PER_Region" ColumnName="PER_Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_PRODUCTO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_PRODUCTO">
+        <MappingFragment StoreEntitySet="CXC_PRODUCTO">
+          <ScalarProperty Name="PRD_Producto" ColumnName="PRD_Producto" />
+          <ScalarProperty Name="PRD_Marca" ColumnName="PRD_Marca" />
+          <ScalarProperty Name="PRD_Modelo" ColumnName="PRD_Modelo" />
+          <ScalarProperty Name="PRD_Anio" ColumnName="PRD_Anio" />
+          <ScalarProperty Name="PRD_Tipo" ColumnName="PRD_Tipo" />
+          <ScalarProperty Name="PRD_Estado" ColumnName="PRD_Estado" />
+          <ScalarProperty Name="PRD_Existencia" ColumnName="PRD_Existencia" />
+          <ScalarProperty Name="PRD_Costo" ColumnName="PRD_Costo" />
+          <ScalarProperty Name="PRD_PrecioVenta" ColumnName="PRD_PrecioVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_PROYECCIONPAGO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_PROYECCIONPAGO">
+        <MappingFragment StoreEntitySet="CXC_PROYECCIONPAGO">
+          <ScalarProperty Name="PRP_ProyeccionPago" ColumnName="PRP_ProyeccionPago" />
+          <ScalarProperty Name="CRE_Credito" ColumnName="CRE_Credito" />
+          <ScalarProperty Name="PRP_NumeroCuota" ColumnName="PRP_NumeroCuota" />
+          <ScalarProperty Name="PRP_FechaProyeccion" ColumnName="PRP_FechaProyeccion" />
+          <ScalarProperty Name="PRP_MontoCuota" ColumnName="PRP_MontoCuota" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_RECUPERACION">
+      <EntityTypeMapping TypeName="CxCDB.CXC_RECUPERACION">
+        <MappingFragment StoreEntitySet="CXC_RECUPERACION">
+          <ScalarProperty Name="REC_Recuperacion" ColumnName="REC_Recuperacion" />
+          <ScalarProperty Name="PRP_ProyeccionPago" ColumnName="PRP_ProyeccionPago" />
+          <ScalarProperty Name="FRM_FormaPago" ColumnName="FRM_FormaPago" />
+          <ScalarProperty Name="REC_FechaRecuperacion" ColumnName="REC_FechaRecuperacion" />
+          <ScalarProperty Name="REC_MontoRecuperado" ColumnName="REC_MontoRecuperado" />
+          <ScalarProperty Name="REC_Recargos" ColumnName="REC_Recargos" />
+          <ScalarProperty Name="TTR_TipoTransaccion" ColumnName="TTR_TipoTransaccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_TIPO_PERSONA">
+      <EntityTypeMapping TypeName="CxCDB.CXC_TIPO_PERSONA">
+        <MappingFragment StoreEntitySet="CXC_TIPO_PERSONA">
+          <ScalarProperty Name="TPP_TipoPersona" ColumnName="TPP_TipoPersona" />
+          <ScalarProperty Name="TPP_Descripcion" ColumnName="TPP_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_TIPOPAGO">
+      <EntityTypeMapping TypeName="CxCDB.CXC_TIPOPAGO">
+        <MappingFragment StoreEntitySet="CXC_TIPOPAGO">
+          <ScalarProperty Name="TPA_TipoPago" ColumnName="TPA_TipoPago" />
+          <ScalarProperty Name="TPA_Descripcion" ColumnName="TPA_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CXC_TIPOTRANSACCION">
+      <EntityTypeMapping TypeName="CxCDB.CXC_TIPOTRANSACCION">
+        <MappingFragment StoreEntitySet="CXC_TIPOTRANSACCION">
+          <ScalarProperty Name="TTR_TipoTRansaccion" ColumnName="TTR_TipoTRansaccion" />
+          <ScalarProperty Name="TTR_Descripcion" ColumnName="TTR_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RRH_EMPLEADO">
+      <EntityTypeMapping TypeName="CxCDB.RRH_EMPLEADO">
+        <MappingFragment StoreEntitySet="RRH_EMPLEADO">
+          <ScalarProperty Name="RRH_Empleado1" ColumnName="RRH_Empleado" />
+          <ScalarProperty Name="RRH_NombreEmpleado" ColumnName="RRH_NombreEmpleado" />
+          <ScalarProperty Name="RRH_FechaIngreso" ColumnName="RRH_FechaIngreso" />
+          <ScalarProperty Name="RRH_Genero" ColumnName="RRH_Genero" />
+          <ScalarProperty Name="RRH_Estado" ColumnName="RRH_Estado" />
+          <ScalarProperty Name="PUE_Puesto" ColumnName="PUE_Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RRH_PUESTO">
+      <EntityTypeMapping TypeName="CxCDB.RRH_PUESTO">
+        <MappingFragment StoreEntitySet="RRH_PUESTO">
+          <ScalarProperty Name="PUE_Puesto" ColumnName="PUE_Puesto" />
+          <ScalarProperty Name="ROL_Descripcion" ColumnName="ROL_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEG_ROL">
+      <EntityTypeMapping TypeName="CxCDB.SEG_ROL">
+        <MappingFragment StoreEntitySet="SEG_ROL">
+          <ScalarProperty Name="ROL_Rol" ColumnName="ROL_Rol" />
+          <ScalarProperty Name="ROL_Descripcion" ColumnName="ROL_Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEG_USUARIO">
+      <EntityTypeMapping TypeName="CxCDB.SEG_USUARIO">
+        <MappingFragment StoreEntitySet="SEG_USUARIO">
+          <ScalarProperty Name="USU_Usuario" ColumnName="USU_Usuario" />
+          <ScalarProperty Name="USU_UsuarioSistema" ColumnName="USU_UsuarioSistema" />
+          <ScalarProperty Name="USU_Contrasenia" ColumnName="USU_Contrasenia" />
+          <ScalarProperty Name="USU_Estado" ColumnName="USU_Estado" />
+          <ScalarProperty Name="ROL_Rol" ColumnName="ROL_Rol" />
+          <ScalarProperty Name="RRH_Empleado" ColumnName="RRH_Empleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_CLIENTES_X_REGION" FunctionName="CxCDB.Store.SP_RPT_CLIENTES_X_REGION">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="ClientesDatosModel.spConsulta_Result">
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CLIENTES_X_REGION_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_Facturacion_x_Fecha_TipoPago" FunctionName="CxCDB.Store.SP_RPT_Facturacion_x_Fecha_TipoPago">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Facturacion_x_Fecha_TipoPago_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spConsulta" FunctionName="CxCDB.Store.spConsulta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.spConsulta_Result">
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -32,9 +259,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="spConsultaUno" FunctionName="ClientesDatosModel.Store.spConsultaUno">
+    <FunctionImportMapping FunctionImportName="spConsultaUno" FunctionName="CxCDB.Store.spConsultaUno">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="ClientesDatosModel.spConsultaUno_Result">
+        <ComplexTypeMapping TypeName="CxCDB.spConsultaUno_Result">
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
           <ScalarProperty Name="ID" ColumnName="ID" />

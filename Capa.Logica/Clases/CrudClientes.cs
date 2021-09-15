@@ -23,9 +23,9 @@ namespace Capa.Logica.Clases
         {
             try
             {//se utiliza la entidad de base de datos
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
-                {//se utiliza una tabla de la base de datos "PER_PERSONA"
-                    Entidades.PER_PERSONA obtPersona = new Entidades.PER_PERSONA
+                using ( Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {//se utiliza una tabla de la base de datos "CXC_PERSONA"
+                    Entidades.CXC_PERSONA obtPersona = new Entidades.CXC_PERSONA
                     {
                         PER_PrimerNombre = PrimerNombre,
                         PER_SegundoNombre = SegundoNombre,
@@ -40,7 +40,7 @@ namespace Capa.Logica.Clases
                         PER_NIT = NIT
                         //Se insertan en el objeto obtpersona
                     };
-                    objEntidad.PER_PERSONA.Add(obtPersona);//se agrega el registro a la tabla
+                    objEntidad.CXC_PERSONA.Add(obtPersona);//se agrega el registro a la tabla
                     objEntidad.SaveChanges();//se guardan los cambios
                 }
             }
@@ -67,9 +67,9 @@ namespace Capa.Logica.Clases
         {
             try
             {//se utiliza la entidad de base de datos
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
-                    Entidades.PER_PERSONA obtPersona = (from q in objEntidad.PER_PERSONA
+                    Entidades.CXC_PERSONA obtPersona = (from q in objEntidad.CXC_PERSONA
                                                         where q.PER_Identificacion == Identificacion
                                                         select q).First();
 
@@ -101,12 +101,12 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
-                    Entidades.PER_PERSONA obtPersona = (from q in objEntidad.PER_PERSONA
+                    Entidades.CXC_PERSONA obtPersona = (from q in objEntidad.CXC_PERSONA
                                                         where q.PER_Identificacion == Identificacion
                                                         select q).First();
-                    objEntidad.PER_PERSONA.Remove(obtPersona);
+                    objEntidad.CXC_PERSONA.Remove(obtPersona);
                     objEntidad.SaveChanges();
                 };
             }
@@ -123,10 +123,10 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
-                    List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.PER_PERSONA
-                                                                      //where q.PER_Persona1=="parametro"
+                    List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.CXC_PERSONA
+                                                                      //where q.CXC_PERSONA1=="parametro"
                                                                       select new Interfaces.clientesInterface
                                                                       {
                                                                           PrimerNombre = q.PER_PrimerNombre,
@@ -157,9 +157,9 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
-                    List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.PER_PERSONA
+                    List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.CXC_PERSONA
                                                                           where q.PER_Identificacion==id
                                                                       select new Interfaces.clientesInterface
                                                                       {
@@ -191,7 +191,7 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.ClientesEntities objEntidad= new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad= new Entidades.CxCEntities1())
                 {
 
                     List<Entidades.spConsulta_Result> respuesta = objEntidad.spConsulta().ToList();  
@@ -214,7 +214,7 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.ClientesEntities objEntidad = new Entidades.ClientesEntities())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
                     List<Entidades.spConsultaUno_Result> respuesta = objEntidad.spConsultaUno(dato).ToList();
                     return respuesta;

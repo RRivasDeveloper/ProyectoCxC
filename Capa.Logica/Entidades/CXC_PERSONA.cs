@@ -12,9 +12,15 @@ namespace Capa.Logica.Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class PER_PERSONA
+    public partial class CXC_PERSONA
     {
-        public int PER_Persona1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CXC_PERSONA()
+        {
+            this.CXC_CLIENTE = new HashSet<CXC_CLIENTE>();
+        }
+    
+        public int PER_Persona { get; set; }
         public string PER_PrimerNombre { get; set; }
         public string PER_SegundoNombre { get; set; }
         public string PER_PrimerApellido { get; set; }
@@ -26,5 +32,9 @@ namespace Capa.Logica.Entidades
         public string PER_Municipio { get; set; }
         public string PER_Direccion { get; set; }
         public string PER_NIT { get; set; }
+        public string PER_Region { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CXC_CLIENTE> CXC_CLIENTE { get; set; }
     }
 }

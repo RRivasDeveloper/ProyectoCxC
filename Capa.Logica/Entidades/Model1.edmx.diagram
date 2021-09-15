@@ -4,8 +4,44 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0afd96ae162947df9e7d2d2cbf3b4e0f" Name="Diagram1">
-        <EntityTypeShape EntityType="ClientesDatosModel.PER_PERSONA" Width="1.5" PointX="0.75" PointY="0.75" />
+      <Diagram DiagramId="618e824a25914e4aaadd4f15d6bf4624" Name="Diagram1">
+        <EntityTypeShape EntityType="CxCDB.CXC_CLIENTE" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_CREDITO" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_DETALLEFACTURA" Width="1.5" PointX="15.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_DIASCREDITO" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_EMPRESA" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_ESTADOCREDITO" Width="1.5" PointX="15.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_FACTURA" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_FORMAPAGO" Width="1.5" PointX="18" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_PERSONA" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_PRODUCTO" Width="1.5" PointX="13.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_PROYECCIONPAGO" Width="1.5" PointX="18" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_RECUPERACION" Width="1.5" PointX="20.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_TIPO_PERSONA" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_TIPOPAGO" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_TIPOTRANSACCION" Width="1.5" PointX="18" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.RRH_EMPLEADO" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.RRH_PUESTO" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.SEG_ROL" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.SEG_USUARIO" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="CxCDB.Fk_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_TipoPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Credito" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_DiasCredito" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_FacturaCrd" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_EstadoCRD" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_TipoPago" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_FormaPago" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_ProyeccionPago" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_TipoTransaccion" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_RRHEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="CxCDB.Fk_Rol" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

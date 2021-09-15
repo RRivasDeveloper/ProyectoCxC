@@ -15,10 +15,10 @@ namespace Capa.Logica.Entidades
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ClientesEntities : DbContext
+    public partial class CxCEntities1 : DbContext
     {
-        public ClientesEntities()
-            : base("name=ClientesEntities")
+        public CxCEntities1()
+            : base("name=CxCEntities1")
         {
         }
     
@@ -27,12 +27,43 @@ namespace Capa.Logica.Entidades
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<PER_PERSONA> PER_PERSONA { get; set; }
+        public virtual DbSet<CXC_CLIENTE> CXC_CLIENTE { get; set; }
+        public virtual DbSet<CXC_CREDITO> CXC_CREDITO { get; set; }
+        public virtual DbSet<CXC_DETALLEFACTURA> CXC_DETALLEFACTURA { get; set; }
+        public virtual DbSet<CXC_DIASCREDITO> CXC_DIASCREDITO { get; set; }
+        public virtual DbSet<CXC_EMPRESA> CXC_EMPRESA { get; set; }
+        public virtual DbSet<CXC_ESTADOCREDITO> CXC_ESTADOCREDITO { get; set; }
+        public virtual DbSet<CXC_FACTURA> CXC_FACTURA { get; set; }
+        public virtual DbSet<CXC_FORMAPAGO> CXC_FORMAPAGO { get; set; }
+        public virtual DbSet<CXC_PERSONA> CXC_PERSONA { get; set; }
+        public virtual DbSet<CXC_PRODUCTO> CXC_PRODUCTO { get; set; }
+        public virtual DbSet<CXC_PROYECCIONPAGO> CXC_PROYECCIONPAGO { get; set; }
+        public virtual DbSet<CXC_RECUPERACION> CXC_RECUPERACION { get; set; }
+        public virtual DbSet<CXC_TIPO_PERSONA> CXC_TIPO_PERSONA { get; set; }
+        public virtual DbSet<CXC_TIPOPAGO> CXC_TIPOPAGO { get; set; }
+        public virtual DbSet<CXC_TIPOTRANSACCION> CXC_TIPOTRANSACCION { get; set; }
+        public virtual DbSet<RRH_EMPLEADO> RRH_EMPLEADO { get; set; }
+        public virtual DbSet<RRH_PUESTO> RRH_PUESTO { get; set; }
+        public virtual DbSet<SEG_ROL> SEG_ROL { get; set; }
+        public virtual DbSet<SEG_USUARIO> SEG_USUARIO { get; set; }
     
-       /* public virtual ObjectResult<spDatosPrincipales_Result> spDatosPrincipales()
+        public virtual ObjectResult<SP_RPT_CLIENTES_X_REGION_Result> SP_RPT_CLIENTES_X_REGION(string vTipPago)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spDatosPrincipales_Result>("spDatosPrincipales");
-        }*/
+            var vTipPagoParameter = vTipPago != null ?
+                new ObjectParameter("vTipPago", vTipPago) :
+                new ObjectParameter("vTipPago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CLIENTES_X_REGION_Result>("SP_RPT_CLIENTES_X_REGION", vTipPagoParameter);
+        }
+    
+        public virtual ObjectResult<SP_RPT_Facturacion_x_Fecha_TipoPago_Result> SP_RPT_Facturacion_x_Fecha_TipoPago(string vTipPago)
+        {
+            var vTipPagoParameter = vTipPago != null ?
+                new ObjectParameter("vTipPago", vTipPago) :
+                new ObjectParameter("vTipPago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_Facturacion_x_Fecha_TipoPago_Result>("SP_RPT_Facturacion_x_Fecha_TipoPago", vTipPagoParameter);
+        }
     
         public virtual ObjectResult<spConsulta_Result> spConsulta()
         {
