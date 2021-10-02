@@ -14,9 +14,9 @@ namespace CapasCxC.Interfaces.Clientes
 
         }
 
-        protected void btnConsult_Click(object sender, ImageClickEventArgs e)
+        protected void btnReporte_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("fmrClientes.aspx", true);
+            Response.Redirect("../Reportes/frmReporte.aspx", true);
         }
 
         protected void btnSalir_Click(object sender, ImageClickEventArgs e)

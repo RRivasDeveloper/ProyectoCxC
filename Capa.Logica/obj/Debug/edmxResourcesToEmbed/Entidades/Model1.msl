@@ -272,5 +272,81 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CxCDB.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CxCDB.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CxCDB.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CxCDB.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CxCDB.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CxCDB.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="SP_RPT_Clientes_EstadoCredito" FunctionName="CxCDB.Store.SP_RPT_Clientes_EstadoCredito">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Clientes_EstadoCredito_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="EstadoCredito" ColumnName="EstadoCredito" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_X_REGION" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_X_REGION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_X_REGION_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+          <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CxCDB.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_X_PAGAR" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_X_PAGAR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_X_PAGAR_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+          <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

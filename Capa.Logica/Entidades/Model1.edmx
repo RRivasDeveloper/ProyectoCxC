@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CxCDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CxCDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CXC_CLIENTE">
           <Key>
             <PropertyRef Name="CLI_Cliente" />
@@ -413,12 +413,58 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_RPT_Clientes_EstadoCredito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vFechaInicial" Type="date" Mode="In" />
+          <Parameter Name="vFechaFinal" Type="date" Mode="In" />
+          <Parameter Name="vEstado" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_RPT_CLIENTES_X_REGION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vTipPago" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_RPT_CREDITOS_X_PAGAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaInicial" Type="date" Mode="In" />
+          <Parameter Name="FechaFinal" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SP_RPT_CREDITOS_X_REGION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaInicial" Type="date" Mode="In" />
+          <Parameter Name="FechaFinal" Type="date" Mode="In" />
+        </Function>
         <Function Name="SP_RPT_Facturacion_x_Fecha_TipoPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vFechaInicial" Type="date" Mode="In" />
+          <Parameter Name="vFechaFinal" Type="date" Mode="In" />
           <Parameter Name="vTipPago" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spConsulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="spConsultaUno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IDNIT" Type="varchar" Mode="In" />
@@ -516,8 +562,7 @@
             <End Role="CXC_RECUPERACION" EntitySet="CXC_RECUPERACION" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CxCDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1058,14 +1103,59 @@
             <End Role="SEG_USUARIO" EntitySet="SEG_USUARIO" />
           </AssociationSet>
           <FunctionImport Name="SP_RPT_CLIENTES_X_REGION" ReturnType="Collection(CxCDB.SP_RPT_CLIENTES_X_REGION_Result)">
-            <Parameter Name="vTipPago" Mode="In" Type="String" />
+          <Parameter Name="vTipPago" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_RPT_Facturacion_x_Fecha_TipoPago" ReturnType="Collection(CxCDB.SP_RPT_Facturacion_x_Fecha_TipoPago_Result)">
+            <Parameter Name="vFechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFinal" Mode="In" Type="DateTime" />
             <Parameter Name="vTipPago" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spConsulta" ReturnType="Collection(CxCDB.spConsulta_Result)" />
           <FunctionImport Name="spConsultaUno" ReturnType="Collection(CxCDB.spConsultaUno_Result)">
-            <Parameter Name="IDNIT" Mode="In" Type="String" />
+          <Parameter Name="IDNIT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CxCDB.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CxCDB.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_Clientes_EstadoCredito" ReturnType="Collection(CxCDB.SP_RPT_Clientes_EstadoCredito_Result)">
+            <Parameter Name="vFechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="vFechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_CREDITOS_X_REGION" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_X_REGION_Result)">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SP_RPT_CREDITOS_X_PAGAR" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_X_PAGAR_Result)">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
@@ -1111,6 +1201,57 @@
           <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_RPT_Clientes_EstadoCredito_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="EstadoCredito" Nullable="true" MaxLength="80" />
+        </ComplexType>
+        <ComplexType Name="SP_RPT_CREDITOS_X_REGION_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="SP_RPT_CREDITOS_X_PAGAR_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1386,6 +1527,82 @@
                 <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
                 <ScalarProperty Name="NIT" ColumnName="NIT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CxCDB.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CxCDB.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CxCDB.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CxCDB.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CxCDB.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CxCDB.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SP_RPT_Clientes_EstadoCredito" FunctionName="CxCDB.Store.SP_RPT_Clientes_EstadoCredito">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Clientes_EstadoCredito_Result">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+                <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="EstadoCredito" ColumnName="EstadoCredito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_X_REGION" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_X_REGION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_X_REGION_Result">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+                <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+                <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CxCDB.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_X_PAGAR" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_X_PAGAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_X_PAGAR_Result">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+                <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+                <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -540,11 +540,56 @@
       <Parameter Name="vTipPago" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SP_RPT_Facturacion_x_Fecha_TipoPago" ReturnType="Collection(CxCDB.SP_RPT_Facturacion_x_Fecha_TipoPago_Result)">
+      <Parameter Name="vFechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="vFechaFinal" Mode="In" Type="DateTime" />
       <Parameter Name="vTipPago" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="spConsulta" ReturnType="Collection(CxCDB.spConsulta_Result)" />
     <FunctionImport Name="spConsultaUno" ReturnType="Collection(CxCDB.spConsultaUno_Result)">
       <Parameter Name="IDNIT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CxCDB.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CxCDB.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_Clientes_EstadoCredito" ReturnType="Collection(CxCDB.SP_RPT_Clientes_EstadoCredito_Result)">
+      <Parameter Name="vFechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="vFechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vEstado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_CREDITOS_X_REGION" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_X_REGION_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="SP_RPT_CREDITOS_X_PAGAR" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_X_PAGAR_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
@@ -590,5 +635,56 @@
     <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="80" />
     <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_Clientes_EstadoCredito_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EstadoCredito" Nullable="true" MaxLength="80" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_CREDITOS_X_REGION_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+    <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_CREDITOS_X_PAGAR_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+    <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
   </ComplexType>
 </Schema>

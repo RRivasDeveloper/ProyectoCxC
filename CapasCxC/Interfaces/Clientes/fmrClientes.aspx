@@ -8,7 +8,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/misEstilos.css" rel="stylesheet" />
     <link rel="shortcut icon" href="../../img/LogoIcon.ico" type="image/x-icon" />
-    <title>Cuentas por Cobrar</title>
+    <title>Clientes</title>
 
 </head>
 <body>
@@ -53,7 +53,7 @@
                 <label><strong>Consulta</strong></label>
                 <div class="container-fluid">
                     <a href="#" class="nav-link d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/cpc.png" alt="" class="iconos">
+                        <img src="/img/cpc.png" alt="" class="iconos"/>
                         <strong></strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
@@ -76,7 +76,7 @@
 
                         </li>
                         <li>
-                            <hr class="dropdown-divider">
+                            <hr class="dropdown-divider"/>
                         </li>
                         <li><a class="dropdown-item" href="#">Imprimir</a>
                             <asp:ImageButton runat="server" ID="btn_Imprimir" ImageUrl="~/img/imprimir.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
@@ -98,7 +98,7 @@
                                     <asp:ImageButton
                                         ID="ImageButton1"
                                         runat="server"
-                                        Width="50"
+                                        Width="100"
                                         ImageUrl="~/img/buscar.png"
                                         CommandName="Select"
                                         ToolTip="Seleccionar"

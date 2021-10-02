@@ -23,7 +23,7 @@ namespace Capa.Logica.Clases
         {
             try
             {//se utiliza la entidad de base de datos
-                using ( Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {//se utiliza una tabla de la base de datos "CXC_PERSONA"
                     Entidades.CXC_PERSONA obtPersona = new Entidades.CXC_PERSONA
                     {
@@ -84,7 +84,7 @@ namespace Capa.Logica.Clases
                     obtPersona.PER_Municipio = Municipio;
                     obtPersona.PER_Direccion = Direccion;
                     obtPersona.PER_NIT = NIT;
-                   
+
                     objEntidad.SaveChanges();//solo se guardan los cambios porque ya existe
                 }
             }
@@ -126,7 +126,7 @@ namespace Capa.Logica.Clases
                 using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
                     List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.CXC_PERSONA
-                                                                      //where q.CXC_PERSONA1=="parametro"
+                                                                          //where q.CXC_PERSONA1=="parametro"
                                                                       select new Interfaces.clientesInterface
                                                                       {
                                                                           PrimerNombre = q.PER_PrimerNombre,
@@ -160,7 +160,7 @@ namespace Capa.Logica.Clases
                 using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
                     List<Interfaces.clientesInterface> objConsulta = (from q in objEntidad.CXC_PERSONA
-                                                                          where q.PER_Identificacion==id
+                                                                      where q.PER_Identificacion == id
                                                                       select new Interfaces.clientesInterface
                                                                       {
                                                                           PrimerNombre = q.PER_PrimerNombre,
@@ -191,10 +191,10 @@ namespace Capa.Logica.Clases
         {
             try
             {
-                using (Entidades.CxCEntities1 objEntidad= new Entidades.CxCEntities1())
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
                 {
 
-                    List<Entidades.spConsulta_Result> respuesta = objEntidad.spConsulta().ToList();  
+                    List<Entidades.spConsulta_Result> respuesta = objEntidad.spConsulta().ToList();
                     //objEntidad.spDatosPrincipales().ToList();
                     //List<Interfaces.clientesInterface> objConsulta = (List)objEntidad.Database.SqlQuery<objConsulta>("spDatosPrincipales").ToList();
                     //List<Interfaces.clientesInterface> ).ToList();
@@ -206,6 +206,63 @@ namespace Capa.Logica.Clases
             {
 
                 throw ex;
+            }
+        }
+        #endregion
+        #region sp_ConsultaPorRegionGeografica
+        public List<Entidades.SP_RPT_CREDITOS_X_REGION_Result> Consultar_spClientesRegionFecha(DateTime inicial,DateTime final)
+        {
+            try
+            {
+                //DateTime fechaInicial = new DateTime(2021, 01, 01);
+                //DateTime fechaFinal = new DateTime(2021, 12, 31);
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_CREDITOS_X_REGION_Result> respuesta = objEntidad.SP_RPT_CREDITOS_X_REGION(inicial, final).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+        #region sp_RptCreditosXpagar
+        public List<Entidades.SP_RPT_CREDITOS_X_PAGAR_Result> Consultar_spRptCreditosXpagar(DateTime inicial, DateTime final)
+        {
+            try
+            {
+                //DateTime fechaInicial = new DateTime(2021, 01, 01);
+                //DateTime fechaFinal = new DateTime(2021, 12, 31);
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_CREDITOS_X_PAGAR_Result> respuesta = objEntidad.SP_RPT_CREDITOS_X_PAGAR(inicial, final).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+        #region sp_ClientesPorRegion
+        public List<Entidades.SP_RPT_CLIENTES_X_REGION_Result> Consultar_SpRptClientesPorRegion(String a)
+        {
+            try
+            {
+                //DateTime fechaInicial = new DateTime(2021, 01, 01);
+                //DateTime fechaFinal = new DateTime(2021, 12, 31);
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_CLIENTES_X_REGION_Result> respuesta = objEntidad.SP_RPT_CLIENTES_X_REGION(a).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
         #endregion
