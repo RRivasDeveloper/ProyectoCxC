@@ -176,14 +176,18 @@
     <Content Include="img\borrarClienteAzul.png" />
     <Content Include="img\buscar.png" />
     <Content Include="img\buscarCliente.png" />
+    <Content Include="img\cancelados.png" />
     <Content Include="img\clientesContado2.png" />
+    <Content Include="img\Clientesporregion.png" />
     <Content Include="img\clients.jpg" />
     <Content Include="img\Consulta.png" />
     <Content Include="img\credit.png" />
     <Content Include="img\editarCliente.png" />
     <Content Include="img\editarCliente1.png" />
+    <Content Include="img\en mora2.png" />
     <Content Include="img\enmora.png" />
     <Content Include="img\factura.png" />
+    <Content Include="img\fueradeTiempo.png" />
     <Content Include="img\gt.png" />
     <Content Include="img\gtDepto - copia.gif" />
     <Content Include="img\guardar.png" />
@@ -194,6 +198,7 @@
     <Content Include="img\moroso.png" />
     <Content Include="img\pagos.png" />
     <Content Include="img\pendientePago.png" />
+    <Content Include="img\rangoFecha.png" />
     <Content Include="img\Saldo.png" />
     <Content Include="img\Salir.png" />
     <Content Include="img\sindeuda.png" />

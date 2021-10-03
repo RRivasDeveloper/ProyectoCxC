@@ -210,7 +210,7 @@ namespace Capa.Logica.Clases
         }
         #endregion
         #region sp_ConsultaPorRegionGeografica
-        public List<Entidades.SP_RPT_CREDITOS_X_REGION_Result> Consultar_spClientesRegionFecha(DateTime inicial,DateTime final)
+        public List<Entidades.SP_RPT_CREDITOS_X_REGION_Result> Consultar_spClientesRegionFecha(DateTime inicial, DateTime final)
         {
             try
             {
@@ -284,5 +284,43 @@ namespace Capa.Logica.Clases
             }
         }
         #endregion
+        #region Consulta Clientes estado Credito
+        public List<Entidades.SP_RPT_Clientes_EstadoCredito_Result> Consulta_spClientesEstadoCredito(DateTime inicial, DateTime final, int tipo)
+        {
+            try
+            {
+                //DateTime fechaInicial = new DateTime(2021, 01, 01);
+                //DateTime fechaFinal = new DateTime(2021, 12, 31);
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_Clientes_EstadoCredito_Result> respuesta = objEntidad.SP_RPT_Clientes_EstadoCredito(inicial, final, tipo).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+        #region Historico_de_Pagos_CR
+        public List<Entidades.SP_RPT_Historico_de_Pagos_CR_Result> Consultar_spHistoricodePagos(DateTime inicial, DateTime final)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_Historico_de_Pagos_CR_Result> respuesta = objEntidad.SP_RPT_Historico_de_Pagos_CR(inicial, final).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

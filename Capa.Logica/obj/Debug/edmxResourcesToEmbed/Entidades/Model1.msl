@@ -348,5 +348,27 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_Historico_de_Pagos_CR" FunctionName="CxCDB.Store.SP_RPT_Historico_de_Pagos_CR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Historico_de_Pagos_CR_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+          <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+          <ScalarProperty Name="PRP_FechaProyeccion" ColumnName="PRP_FechaProyeccion" />
+          <ScalarProperty Name="REC_FechaRecuperacion" ColumnName="REC_FechaRecuperacion" />
+          <ScalarProperty Name="DiasPosteriores" ColumnName="DiasPosteriores" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RPT_Pagos_x_RangoFecha" FunctionName="CxCDB.Store.SP_RPT_Pagos_x_RangoFecha" />
   </EntityContainerMapping>
 </Mapping>

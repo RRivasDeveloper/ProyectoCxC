@@ -19,8 +19,8 @@ C:\ProyectoAnalisis2\Capas\Capa.Logica\bin\Debug\EntityFramework.SqlServer.dll
 C:\ProyectoAnalisis2\Capas\Capa.Logica\bin\Debug\System.Data.SqlServerCe.dll
 C:\ProyectoAnalisis2\Capas\Capa.Logica\bin\Debug\EntityFramework.xml
 C:\ProyectoAnalisis2\Capas\Capa.Logica\bin\Debug\EntityFramework.SqlServer.xml
-C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.AssemblyReference.cache
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CoreCompileInputs.cache
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.dll
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.pdb
+C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.AssemblyReference.cache

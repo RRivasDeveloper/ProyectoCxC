@@ -156,6 +156,9 @@
     <Compile Include="Entidades\SP_RPT_Facturacion_x_Fecha_TipoPago_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\SP_RPT_Historico_de_Pagos_CR_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\clientesInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

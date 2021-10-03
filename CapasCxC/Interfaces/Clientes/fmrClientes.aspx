@@ -108,7 +108,8 @@
                         </table>
 
                     </div>
-                    <asp:GridView ID="gvClientes" runat="server" EmptyDataText="No hay Registros"
+                    <div style="overflow-x:auto;width:auto;margin-right:50px;">
+                    <asp:GridView ID="gvClientes" CssClass="transparente" runat="server" EmptyDataText="No hay Registros"
                         AllowPaging="True" OnPageIndexChanging="cambiodDePagina"
                         OnSorting="OrdenarPagina"
                         BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
@@ -123,6 +124,7 @@
                         <SortedDescendingCellStyle BackColor="#F1E5CE" />
                         <SortedDescendingHeaderStyle BackColor="#93451F" />
                     </asp:GridView>
+                         </div>
                 </div>
 
             </div>

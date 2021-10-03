@@ -232,5 +232,31 @@ namespace Capa.Logica.Entidades
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_X_PAGAR_Result>("SP_RPT_CREDITOS_X_PAGAR", fechaInicialParameter, fechaFinalParameter);
         }
+    
+        public virtual ObjectResult<SP_RPT_Historico_de_Pagos_CR_Result> SP_RPT_Historico_de_Pagos_CR(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_Historico_de_Pagos_CR_Result>("SP_RPT_Historico_de_Pagos_CR", fechaInicialParameter, fechaFinalParameter);
+        }
+    
+        public virtual int SP_RPT_Pagos_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha", fechaInicialParameter, fechaFinalParameter);
+        }
     }
 }

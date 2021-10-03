@@ -591,6 +591,14 @@
       <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
       <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="SP_RPT_Historico_de_Pagos_CR" ReturnType="Collection(CxCDB.SP_RPT_Historico_de_Pagos_CR_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
     <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
@@ -686,5 +694,22 @@
     <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
     <Property Type="Int32" Name="EST_Estado" Nullable="false" />
     <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_Historico_de_Pagos_CR_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+    <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="DateTime" Name="PRP_FechaProyeccion" Nullable="true" />
+    <Property Type="DateTime" Name="REC_FechaRecuperacion" Nullable="true" />
+    <Property Type="Int32" Name="DiasPosteriores" Nullable="true" />
   </ComplexType>
 </Schema>

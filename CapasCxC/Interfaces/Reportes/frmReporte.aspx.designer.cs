@@ -105,6 +105,15 @@ namespace CapasCxC.Interfaces.Reportes
         protected global::System.Web.UI.WebControls.ImageButton btnSidebar1;
 
         /// <summary>
+        /// Control sideBar2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink sideBar2;
+
+        /// <summary>
         /// Control btnSidebar2.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,15 @@ namespace CapasCxC.Interfaces.Reportes
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnSidebar2;
+
+        /// <summary>
+        /// Control sideBar3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink sideBar3;
 
         /// <summary>
         /// Control btnSidebar3.
@@ -123,6 +141,15 @@ namespace CapasCxC.Interfaces.Reportes
         protected global::System.Web.UI.WebControls.ImageButton btnSidebar3;
 
         /// <summary>
+        /// Control sideBar4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink sideBar4;
+
+        /// <summary>
         /// Control btnSidebar4.
         /// </summary>
         /// <remarks>
@@ -130,6 +157,24 @@ namespace CapasCxC.Interfaces.Reportes
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnSidebar4;
+
+        /// <summary>
+        /// Control sideBar5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink sideBar5;
+
+        /// <summary>
+        /// Control btnSidebar5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnSidebar5;
 
         /// <summary>
         /// Control btn_Imprimir.
@@ -202,6 +247,24 @@ namespace CapasCxC.Interfaces.Reportes
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtFechaFinal;
+
+        /// <summary>
+        /// Control ddOpciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddOpciones;
+
+        /// <summary>
+        /// Control gvTitulo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label gvTitulo;
 
         /// <summary>
         /// Control gvClientes.
