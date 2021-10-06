@@ -42,6 +42,15 @@ namespace CapasCxC.Interfaces.Reportes
                 case 12:
                     gvClientes.DataSource = obj.Consultar_spRptCreditosXpagar(FechaInicial, FechaFinal);
                     break;
+                case 21:
+                    gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "");
+                    break;
+                case 22:
+                    gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "CR");
+                    break;
+                case 23:
+                    gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "CO");
+                    break;
                 case 31:
                     gvClientes.DataSource = obj.Consultar_SpRptClientesPorRegion(ddcliente);
                     break;
@@ -170,7 +179,18 @@ namespace CapasCxC.Interfaces.Reportes
                     break;
                 case 2://factura
                     ocultarBtnSidebar();
-                    ;
+                    sideBar1.Text = "Facturas por Rango de Fecha";
+                    btnSidebar1.ImageUrl = "~/img/rangoFecha.png";
+                    sideBar2.Text = "Facturas Credito";
+                    btnSidebar2.ImageUrl = "~/img/moroso.png";
+                    sideBar3.Text = "Facturas Contado ";
+                    btnSidebar3.ImageUrl = "~/img/pagos.png";
+                    sideBar1.Visible = true;
+                    btnSidebar1.Visible = true;
+                    sideBar2.Visible = true;
+                    btnSidebar2.Visible = true;
+                    sideBar3.Visible = true;
+                    btnSidebar3.Visible = true;
                     break;
                 case 3://clientes
                     ocultarBtnSidebar();
@@ -258,7 +278,7 @@ namespace CapasCxC.Interfaces.Reportes
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)//binoculares
         {
 
-           // gvClientes.DataSource = null;
+            // gvClientes.DataSource = null;
             switch (menu)//por 1credito 2 factura 3 cliente
             {
                 case 1://Menu credito segun sidebar
@@ -284,7 +304,29 @@ namespace CapasCxC.Interfaces.Reportes
                     }
 
                     break;
-                case 2://Menu Facturas segun sidebar
+                case 2://Menu Facturas segun sidebar Consulta_spFactura_CR_CO
+                    switch (opcion)
+                    {
+                        case 1:
+                            gvTitulo.Text = "Consulta de Facturas por fecha";
+                            gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "");
+                            //gvClientes.DataBind();
+                            //gvClientes.Visible = true;
+                            break;
+                        case 2://///////////////////////////////////////////////////////////////////////////////////////////////77
+                            gvTitulo.Text = "Consulta de Facturas por fecha Credito";
+                            gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "CR");
+                            //gvClientes.Visible = true;
+                            break;
+                        case 3:
+                            gvTitulo.Text = "Consulta de Facturas por fecha Contado";
+                            gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "CO");
+                            break;
+
+                        default:
+                            break;
+                    }
+                    gvTitulo.Visible = true;
                     break;
                 case 3://Menu Clientes segun sideBar
                     switch (opcion)
@@ -311,7 +353,7 @@ namespace CapasCxC.Interfaces.Reportes
                         case 5:
                             gvTitulo.Text = "Consulta de Creditos-Clientes Historico";
                             gvClientes.DataSource = obj.Consultar_spHistoricodePagos(FechaInicial, FechaFinal);
-                        
+
                             break;
                         default:
                             break;
@@ -402,12 +444,16 @@ namespace CapasCxC.Interfaces.Reportes
             {
                 case 1:
                     bind = 11;//Creditos sp1
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
                     mostrarParabuscar();
                     break;
                 case 2:
-                    ;
+                    bind = 21;
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
+                    mostrarParabuscar();
                     break;
                 case 3:
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
                     ocultarParabuscar();
                     bind = 31;
                     llenarDDclientes();
@@ -441,8 +487,8 @@ namespace CapasCxC.Interfaces.Reportes
                     mostrarParabuscar();
                     break;
                 case 2:
-                    bind = 22;//viene de factura
-                    gvClientes.Visible = false;
+                    bind = 22;
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
                     mostrarParabuscar();
                     break;
                 case 3:
@@ -465,6 +511,11 @@ namespace CapasCxC.Interfaces.Reportes
             {
                 case 1:
                     bind = 13;//creditos sp3
+                    mostrarParabuscar();
+                    break;
+                case 2:
+                    bind = 23;//esto siginifica menu 2 sidebar boton 3
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
                     mostrarParabuscar();
                     break;
                 case 3:

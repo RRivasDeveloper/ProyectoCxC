@@ -182,10 +182,12 @@
     <Content Include="img\clients.jpg" />
     <Content Include="img\Consulta.png" />
     <Content Include="img\credit.png" />
+    <Content Include="img\creditcontado.png" />
     <Content Include="img\editarCliente.png" />
     <Content Include="img\editarCliente1.png" />
     <Content Include="img\en mora2.png" />
     <Content Include="img\enmora.png" />
+    <Content Include="img\enmora2.png" />
     <Content Include="img\factura.png" />
     <Content Include="img\fueradeTiempo.png" />
     <Content Include="img\gt.png" />
