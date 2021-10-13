@@ -12,17 +12,12 @@ namespace Capa.Logica.Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class SEG_USUARIO
+    public partial class sysdiagrams
     {
-        public int USU_Usuario { get; set; }
-        public string USU_UsuarioSistema { get; set; }
-        public string USU_Contrasenia { get; set; }
-        public string USU_Estado { get; set; }
-        public Nullable<int> ROL_Rol { get; set; }
-        public Nullable<int> RRH_Empleado { get; set; }
-        public byte[] USU_Passw { get; set; }
-    
-        public virtual RRH_EMPLEADO RRH_EMPLEADO1 { get; set; }
-        public virtual SEG_ROL SEG_ROL { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

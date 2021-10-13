@@ -60,6 +60,24 @@ namespace CapasCxC.Interfaces.Reportes
         protected global::System.Web.UI.WebControls.ImageButton btnClientes;
 
         /// <summary>
+        /// Control btnPagos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnPagos;
+
+        /// <summary>
+        /// Control btnOtrasTransacciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnOtrasTransacciones;
+
+        /// <summary>
         /// Control btnSalir.
         /// </summary>
         /// <remarks>
@@ -256,6 +274,15 @@ namespace CapasCxC.Interfaces.Reportes
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddOpciones;
+
+        /// <summary>
+        /// Control ddTipoTransact.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddTipoTransact;
 
         /// <summary>
         /// Control gvTitulo.

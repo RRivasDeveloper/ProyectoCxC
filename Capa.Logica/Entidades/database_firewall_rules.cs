@@ -12,17 +12,13 @@ namespace Capa.Logica.Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class SEG_USUARIO
+    public partial class database_firewall_rules
     {
-        public int USU_Usuario { get; set; }
-        public string USU_UsuarioSistema { get; set; }
-        public string USU_Contrasenia { get; set; }
-        public string USU_Estado { get; set; }
-        public Nullable<int> ROL_Rol { get; set; }
-        public Nullable<int> RRH_Empleado { get; set; }
-        public byte[] USU_Passw { get; set; }
-    
-        public virtual RRH_EMPLEADO RRH_EMPLEADO1 { get; set; }
-        public virtual SEG_ROL SEG_ROL { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

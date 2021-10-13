@@ -197,6 +197,7 @@
     <Content Include="img\ingreso.png" />
     <Content Include="img\inspect.png" />
     <Content Include="img\moroso.png" />
+    <Content Include="img\OtrasTransacciones.png" />
     <Content Include="img\pagos.png" />
     <Content Include="img\pendientePago.png" />
     <Content Include="img\rangoFecha.png" />
@@ -207,6 +208,7 @@
     <Content Include="Interfaces\Clientes\frmBase.aspx" />
     <Content Include="Interfaces\Clientes\frmCrudCliente.aspx" />
     <Content Include="Interfaces\Clientes\frmInicio.aspx" />
+    <Content Include="Interfaces\Inicio\Login.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManCategoria.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManPlazo.aspx" />
@@ -317,6 +319,13 @@
     </Compile>
     <Compile Include="Interfaces\Clientes\frmInicio.aspx.designer.cs">
       <DependentUpon>frmInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Inicio\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Inicio\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx.cs">
       <DependentUpon>frmCategoriaDet.aspx</DependentUpon>

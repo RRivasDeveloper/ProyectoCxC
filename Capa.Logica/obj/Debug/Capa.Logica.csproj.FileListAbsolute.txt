@@ -23,4 +23,3 @@ C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CoreCompileI
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.dll
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.pdb
-C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.AssemblyReference.cache

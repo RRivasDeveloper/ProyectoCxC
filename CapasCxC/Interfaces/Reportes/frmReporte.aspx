@@ -36,7 +36,16 @@
                         <asp:ImageButton runat="server" ID="btnClientes" ImageUrl="~/img/clients.jpg" AlternateText="Clientes" OnClick="btnClientes_Click" class="iconos" /></li>
 
                     <li><a href="#" class="nav-link px-2 text-white">Clientes</a></li>
+                    <li>
+                        <asp:ImageButton runat="server" ID="btnPagos" ImageUrl="~/img/pagos.png" AlternateText="Clientes" OnClick="btnPagos_Click" class="iconos" /></li>
 
+                    <li><a href="#" class="nav-link px-2 text-white">Pagos</a></li>
+                    <li>
+                        <asp:ImageButton runat="server" ID="btnOtrasTransacciones" ImageUrl="~/img/OtrasTransacciones.png" AlternateText="Clientes" OnClick="btnOtrasTransacciones_Click" class="iconos" /></li>
+
+                    <li><a href="#" class="nav-link px-2 text-white">Otras Transacciones
+
+                    </a></li>
                 </ul>
 
 
@@ -161,9 +170,9 @@
                     <tr>
                         <td>
                             <asp:DropDownList ID="ddOpciones" AutoPostBack="true" OnSelectedIndexChanged="ddOpciones_SelectedIndexChanged" Visible="false" runat="server"></asp:DropDownList>
-                        </td>
-
-
+                            <asp:DropDownList ID="ddTipoTransact" AutoPostBack="true" OnSelectedIndexChanged="ddTipoTransact_SelectedIndexChanged" Visible="false" runat="server"></asp:DropDownList>
+                            </td>
+                        
                     </tr>
                 </table>
                 <div>
@@ -189,7 +198,7 @@
                             <SortedDescendingHeaderStyle BackColor="#93451F" />
                         </asp:GridView>
                     </div>
-            </div>
+                </div>
 
             </div>
         </div>

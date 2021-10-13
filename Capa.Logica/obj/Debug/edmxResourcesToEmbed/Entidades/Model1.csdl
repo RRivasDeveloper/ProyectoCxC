@@ -227,6 +227,7 @@
     <Property Name="RRH_Empleado" Type="Int32" />
     <NavigationProperty Name="RRH_EMPLEADO1" Relationship="Self.Fk_RRHEmpleado" FromRole="SEG_USUARIO" ToRole="RRH_EMPLEADO" />
     <NavigationProperty Name="SEG_ROL" Relationship="Self.Fk_Rol" FromRole="SEG_USUARIO" ToRole="SEG_ROL" />
+    <Property Name="USU_Passw" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="Fk_Cliente">
     <End Role="CXC_CLIENTE" Type="Self.CXC_CLIENTE" Multiplicity="0..1" />
@@ -598,6 +599,89 @@
     <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha">
       <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
       <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_Login" ReturnType="Collection(CxCDB.Sp_Login_Result)">
+      <Parameter Name="vUsuario" Mode="In" Type="String" />
+      <Parameter Name="vPassw" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="sysdiagrams" EntityType="CxCDB.sysdiagrams" />
+    <EntitySet Name="database_firewall_rules" EntityType="CxCDB.database_firewall_rules" />
+    <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha1">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha1">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_MasPago">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spOtroPago_x_RangoFecha">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spConsultaUno1" ReturnType="Collection(CxCDB.spConsultaUno1_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_OtroPago">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_LOGIN1" ReturnType="Collection(CxCDB.SP_LOGIN1_Result)">
+      <Parameter Name="vUsuario" Mode="In" Type="String" />
+      <Parameter Name="vPassw" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spConsultaUno11" ReturnType="Collection(CxCDB.spConsultaUno11_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha2" ReturnType="Collection(CxCDB.SP_RPT_OtroPago_x_RangoFecha2_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha2">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spConsultaUno12" ReturnType="Collection(CxCDB.spConsultaUno12_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha3" ReturnType="Collection(CxCDB.SP_RPT_Pagos_x_RangoFecha3_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="vTipoPago" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CNS_DETALLE_FACTURA" ReturnType="Collection(CxCDB.SP_CNS_DETALLE_FACTURA_Result)">
+      <Parameter Name="vIdentificacion" Mode="In" Type="String" />
+      <Parameter Name="vNumero" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CNS_FACTURA" ReturnType="Collection(CxCDB.SP_CNS_FACTURA_Result)">
+      <Parameter Name="vIdentificacion" Mode="In" Type="String" />
+      <Parameter Name="vNumero" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_CREDITOS_CANCELADOS" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
@@ -711,5 +795,144 @@
     <Property Type="DateTime" Name="PRP_FechaProyeccion" Nullable="true" />
     <Property Type="DateTime" Name="REC_FechaRecuperacion" Nullable="true" />
     <Property Type="Int32" Name="DiasPosteriores" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Sp_Login_Result">
+    <Property Type="String" Name="USU_UsuarioSistema" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ROL_Descripcion" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="RRH_NombreEmpleado" Nullable="true" MaxLength="40" />
+    <Property Type="Binary" Name="USU_Passw" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+  </ComplexType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <ComplexType Name="spConsultaUno1_Result">
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ID" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="8" />
+    <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SP_LOGIN1_Result">
+    <Property Type="String" Name="USU_UsuarioSistema" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ROL_Descripcion" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="RRH_NombreEmpleado" Nullable="true" MaxLength="40" />
+    <Property Type="Binary" Name="USU_Passw" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spConsultaUno11_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+    <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_OtroPago_x_RangoFecha2_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+    <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spConsultaUno12_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="2" />
+    <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+    <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_Pagos_x_RangoFecha3_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="7" />
+    <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_CNS_DETALLE_FACTURA_Result">
+    <Property Type="String" Name="Serie" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="NumeroFactura" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="7" />
+    <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Esatdo" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="Anio" Nullable="true" />
+    <Property Type="String" Name="Marca" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Modelo" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="PrecioVenta" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_CNS_FACTURA_Result">
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="String" Name="PER_NIT" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="PER_Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="FAC_Serie" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="FAC_Numero" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="7" />
+    <Property Type="DateTime" Name="FAC_Fecha" Nullable="true" />
+    <Property Type="Decimal" Name="FAC_TOTAL" Nullable="true" Precision="10" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_CREDITOS_CANCELADOS_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+    <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="DCR_Descripcion" Nullable="true" MaxLength="80" />
   </ComplexType>
 </Schema>

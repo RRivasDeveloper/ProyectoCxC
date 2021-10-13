@@ -78,6 +78,20 @@
     opacity: 0.9;
 }
 
+.login {
+    top:25%;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    padding: 17px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.login2 {
+    vertical-align:central;
+    }
 /*
 saddlebrown, darkgoldenrod, maroon
 */

@@ -321,6 +321,78 @@ namespace Capa.Logica.Clases
         }
 
         #endregion
+        #region Facturas por Rango de Fecha -CR-CO
+        public List<Entidades.SP_RPT_Facturacion_x_Fecha_TipoPago_Result> Consulta_spFactura_CR_CO(DateTime inicial, DateTime final, string tipo)
+        {
+            try
+            {
+                //DateTime fechaInicial = new DateTime(2021, 01, 01);
+                //DateTime fechaFinal = new DateTime(2021, 12, 31);
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_Facturacion_x_Fecha_TipoPago_Result> respuesta = objEntidad.SP_RPT_Facturacion_x_Fecha_TipoPago(inicial, final, tipo).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+        #region Reportes Otras Transacciones
+         public List<Entidades.SP_RPT_OtroPago_x_RangoFecha2_Result> Consulta_spOtrosTransac(DateTime inicial, DateTime final, string tipo)
+         {
+             try
+             {
+                 using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                 {
+                     List<Entidades.SP_RPT_OtroPago_x_RangoFecha2_Result> respuesta = objEntidad.SP_RPT_OtroPago_x_RangoFecha2(inicial, final, tipo).ToList();
+                     return respuesta;
+                 }
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+         }
 
+        #endregion
+        #region Reportes Pagos por Rango de fecha
+        public List<Entidades.SP_RPT_Pagos_x_RangoFecha3_Result> spConsultaRangoFecha(DateTime inicial, DateTime final, string tipo)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_Pagos_x_RangoFecha3_Result> respuesta = objEntidad.SP_RPT_Pagos_x_RangoFecha3(inicial, final, tipo).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        #endregion
+        #region Creditos Cancelados
+        public List<Entidades.SP_RPT_CREDITOS_CANCELADOS_Result> spConsultaCreditosCancelados(DateTime inicial, DateTime final)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    List<Entidades.SP_RPT_CREDITOS_CANCELADOS_Result> respuesta = objEntidad.SP_RPT_CREDITOS_CANCELADOS(inicial, final).ToList();
+                    return respuesta;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
+
 }

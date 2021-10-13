@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="618e824a25914e4aaadd4f15d6bf4624" Name="Diagram1">
+      <Diagram DiagramId="618e824a25914e4aaadd4f15d6bf4624" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="CxCDB.CXC_CLIENTE" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_CREDITO" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_DETALLEFACTURA" Width="1.5" PointX="15.75" PointY="5.625" IsExpanded="true" />
@@ -42,6 +42,8 @@
         <AssociationConnector Association="CxCDB.Fk_Puesto" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_RRHEmpleado" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CxCDB.sysdiagrams" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CxCDB.database_firewall_rules" Width="1.5" PointX="10.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

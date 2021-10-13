@@ -13,8 +13,8 @@ namespace CapasCxC.Interfaces.Reportes
         private static int opcion = 0;
         private static int menu = 0;
         private static int bind = 0;
-        private static bool lleno = false;
-        private static string ddcliente = "";
+        private static bool lleno, lleno2 = false;
+        private static string ddcliente, ddTipoTransac, crcotd = "";
         private static DateTime FechaInicial = DateTime.Today;
         private static DateTime FechaFinal = DateTime.Today;
 
@@ -42,6 +42,9 @@ namespace CapasCxC.Interfaces.Reportes
                 case 12:
                     gvClientes.DataSource = obj.Consultar_spRptCreditosXpagar(FechaInicial, FechaFinal);
                     break;
+                case 13:
+                    gvClientes.DataSource = obj.spConsultaCreditosCancelados(FechaInicial, FechaFinal);
+                    break;
                 case 21:
                     gvClientes.DataSource = obj.Consulta_spFactura_CR_CO(FechaInicial, FechaFinal, "");
                     break;
@@ -65,6 +68,18 @@ namespace CapasCxC.Interfaces.Reportes
                     break;
                 case 35:
                     gvClientes.DataSource = obj.Consultar_spHistoricodePagos(FechaInicial, FechaFinal);
+                    break;
+                case 41:
+                    gvClientes.DataSource = obj.spConsultaRangoFecha(FechaInicial, FechaFinal, "CO");
+                    break;
+                case 42:
+                    gvClientes.DataSource = obj.spConsultaRangoFecha(FechaInicial, FechaFinal, "CR");
+                    break;
+                case 43:
+                    gvClientes.DataSource = obj.spConsultaRangoFecha(FechaInicial, FechaFinal, "TO");
+                    break;
+                case 51:
+                    gvClientes.DataSource = obj.Consulta_spOtrosTransac(FechaInicial, FechaFinal, ddTipoTransac);
                     break;
                 default:
                     gvClientes.DataSource = null;
@@ -161,6 +176,25 @@ namespace CapasCxC.Interfaces.Reportes
             Lateral.Visible = true;
             btnSidebar.ImageUrl = "~/img/clients.jpg";
         }
+        protected void btnPagos_Click(object sender, ImageClickEventArgs e)
+        {
+
+            ocultarParabuscar();
+            menu = 4;
+            cambiarLateral(menu);
+            Lateral.Visible = true;
+            btnSidebar.ImageUrl = "~/img/pagos.png";
+        }
+
+        protected void btnOtrasTransacciones_Click(object sender, ImageClickEventArgs e)
+        {
+
+            ocultarParabuscar();
+            menu = 5;
+            cambiarLateral(menu);
+            Lateral.Visible = true;
+            btnSidebar.ImageUrl = "~/img/OtrasTransacciones.png";
+        }
         private void cambiarLateral(int a)
         {
             switch (a)//cambia el diseño lateral segun opcion de menu
@@ -171,11 +205,16 @@ namespace CapasCxC.Interfaces.Reportes
                     sideBar1.Visible = true;
                     btnSidebar1.ImageUrl = "~/img/gt.png";
                     btnSidebar1.Visible = true;
+                    
                     sideBar2.Text = "Creditos Pendientes de Pago";
                     btnSidebar2.Visible = true;
                     btnSidebar2.ImageUrl = "~/img/pendientePago.png";
                     sideBar2.Visible = true;
 
+                    sideBar3.Text = "Creditos Cancelados ";
+                    btnSidebar3.ImageUrl = "~/img/cancelados.png";
+                    btnSidebar3.Visible = true;
+                    sideBar3.Visible = true;
                     break;
                 case 2://factura
                     ocultarBtnSidebar();
@@ -214,6 +253,33 @@ namespace CapasCxC.Interfaces.Reportes
                     btnSidebar4.Visible = true;
                     sideBar5.Visible = true;
                     btnSidebar5.Visible = true;
+                    break;
+                case 4://Reporte de pagos
+                    ocultarBtnSidebar();
+                    sideBar1.Text = "Pagos al Contado";
+                    btnSidebar1.ImageUrl = "~/img/pagos.png";
+                    sideBar2.Text = "Pagos al Credito";
+                    btnSidebar2.ImageUrl = "~/img/moroso.png";
+                    sideBar3.Text = "Todos los pagos ";
+                    btnSidebar3.ImageUrl = "~/img/sindeuda.png";
+
+                    sideBar1.Visible = true;
+                    btnSidebar1.Visible = true;
+                    sideBar2.Visible = true;
+                    btnSidebar2.Visible = true;
+                    sideBar3.Visible = true;
+                    btnSidebar3.Visible = true;
+
+                    ;
+                    break;
+                case 5:
+                    ocultarBtnSidebar();
+                    sideBar1.Text = "Reporte Por Transacción";
+                    sideBar1.Visible = true;
+                    btnSidebar1.ImageUrl = "~/img/creditcontado.png";
+                    btnSidebar1.Visible = true;
+
+                    ;
                     break;
                 default:
                     ;
@@ -297,12 +363,15 @@ namespace CapasCxC.Interfaces.Reportes
                             //gvClientes.Visible = true;
                             break;
                         case 3://falta esta opción;
+                            gvTitulo.Text = "Consulta de Creditos Cancelados";
+                            gvClientes.DataSource = obj.spConsultaCreditosCancelados(FechaInicial, FechaFinal);
+
                             break;
                         default:
 
                             break;
                     }
-
+                    gvTitulo.Visible = true;
                     break;
                 case 2://Menu Facturas segun sidebar Consulta_spFactura_CR_CO
                     switch (opcion)
@@ -358,9 +427,43 @@ namespace CapasCxC.Interfaces.Reportes
                         default:
                             break;
                     }
+
                     gvTitulo.Visible = true;
                     break;
+                case 4://menu de Pagos por rango de fecha
+                    switch (crcotd)
+                    {
+                        case "CO":
+                            gvTitulo.Text = "Consulta de Pagos Contado";
+                            gvClientes.DataSource = obj.spConsultaRangoFecha (FechaInicial, FechaFinal, crcotd);
+                            break;
+                        case "CR":
+                            
+                            gvTitulo.Text = "Consulta de Pagos Credito";
+                            gvClientes.DataSource = obj.spConsultaRangoFecha(FechaInicial, FechaFinal, crcotd);
+                            break;
+                            
+                        case "TD":;
+                            gvTitulo.Text = "Consulta de Todos los Pagos";
+                            gvClientes.DataSource = obj.spConsultaRangoFecha(FechaInicial, FechaFinal, crcotd);
 
+                            break;
+                        default:
+                            break;
+                    }
+                    gvTitulo.Visible = true;
+                    break;
+                case 5:
+                    switch (opcion)
+                    {
+                        case 1:
+                            gvTitulo.Text = "Consulta Por Diferentes Tipos de Transacciones";
+                            gvClientes.DataSource = obj.Consulta_spOtrosTransac(FechaInicial, FechaFinal, ddTipoTransac);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -385,7 +488,7 @@ namespace CapasCxC.Interfaces.Reportes
         }
         public void llenarDDclientes()
         {
-
+            ddTipoTransact.Visible = false;
             btnBuscar.Visible = true;
             ddOpciones.Visible = true;
             if (lleno == false)
@@ -398,11 +501,37 @@ namespace CapasCxC.Interfaces.Reportes
                 ddOpciones.Items.Add("Credito");
                 ddOpciones.Items.Add("TD");
                 lleno = true;
+               
             }
 
 
 
         }
+
+        public void llenarddTipoTransact()
+        {
+            mostrarParabuscar();
+            //btnBuscar.Visible = true;
+            ddOpciones.Visible = false;
+            ddTipoTransact.Visible = true;
+            if (lleno2 == false)
+            {
+
+                ddTipoTransact.AppendDataBoundItems = true;
+                //clientes por region geografica COntado CRedito TD
+                ddTipoTransact.Items.Add("Seleccione tipo de Transacción");
+                ddTipoTransact.Items.Add("Pago de Credito");
+                ddTipoTransact.Items.Add("Nota de Debito");
+                ddTipoTransact.Items.Add("Nota de Credito");
+                ddTipoTransact.Items.Add("Cargos por Mora");
+                ddTipoTransact.Items.Add("Cargos por Cheque Rechazado");
+                lleno2 = true;
+            }
+
+
+
+        }
+
         protected void ddOpciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             // limpiarGv();
@@ -425,6 +554,7 @@ namespace CapasCxC.Interfaces.Reportes
                     ddcliente = "TD";
                     //gvClientes.Visible = false;
                     break;
+
                 default:
                     gvTitulo.Text = "Necesita seleccionar una Opcion";
                     ddcliente = "";
@@ -433,6 +563,46 @@ namespace CapasCxC.Interfaces.Reportes
             }
             gvTitulo.Visible = true;
         }
+        protected void ddTipoTransact_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gvClientes.Visible = false;
+            ddTipoTransac = ddTipoTransact.SelectedItem.ToString();
+            switch (ddTipoTransac)
+            {
+                case "Pago de Credito":
+                    gvTitulo.Text = "1-Pago de Credito";
+                    ddTipoTransac = "1";
+                    //gvClientes.Visible = false;
+                    break;
+                case "Nota de Debito":
+                    gvTitulo.Text = "2-Nota de Debito";
+                    ddTipoTransac = "2";
+                    //gvClientes.Visible = false;
+                    break;
+                case "Nota de Credito":
+                    gvTitulo.Text = "3-Nota de Credito";
+                    ddTipoTransac = "3";
+                    //gvClientes.Visible = false;
+                    break;
+                case "Cargos por Mora":
+                    gvTitulo.Text = "4-Cargos por Mora";
+                    ddTipoTransac = "4";
+                    //gvClientes.Visible = false;
+                    break;
+                case "Cargos por Cheque Rechazado":
+                    gvTitulo.Text = "5-Cargos por Cheque Rechazado";
+                    ddTipoTransac = "5";
+                    //gvClientes.Visible = false;
+                    break;
+                default:
+                    gvTitulo.Text = "Necesita seleccionar una Opcion";
+                    ddTipoTransac = "";
+                    //gvClientes.Visible = false;
+                    break;
+            }
+            gvTitulo.Visible = true;
+        }
+
         #region SideBar
         ///----------------------------------------------------------------------------///
         protected void btnSidebar1_Click(object sender, ImageClickEventArgs e)//
@@ -463,11 +633,21 @@ namespace CapasCxC.Interfaces.Reportes
                     //gvClientes.DataBind();
                     //gvClientes.Visible = true;
                     //BindGrid();
-
-
-
-
                     break;
+                case 4:
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
+                    mostrarParabuscar();
+                    bind = 41;//Reporte de pagos Contado
+                    crcotd = "CO";
+                    break;
+                case 5:
+                    bind = 51;
+                    gvClientes.Visible = false;
+                    llenarddTipoTransact();
+                    break;
+
+
+
                 default:
                     break;
             }
@@ -496,6 +676,12 @@ namespace CapasCxC.Interfaces.Reportes
                     gvClientes.Visible = false;
                     mostrarParabuscar();
                     break;
+                case 4:
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
+                    mostrarParabuscar();
+                    bind = 42;//Reporte de pagos CREDITO
+                    crcotd = "CR";
+                    break;
                 default:
                     break;
             }
@@ -511,6 +697,7 @@ namespace CapasCxC.Interfaces.Reportes
             {
                 case 1:
                     bind = 13;//creditos sp3
+                    gvClientes.Visible = false;
                     mostrarParabuscar();
                     break;
                 case 2:
@@ -522,6 +709,12 @@ namespace CapasCxC.Interfaces.Reportes
                     bind = 33;//viene de Clienters - Clientes en mora
                     gvClientes.Visible = false;
                     mostrarParabuscar();
+                    break;
+                case 4:
+                    gvClientes.Visible = false;//AGREGUE ESTO CUANDO YA FUNCIONABA BIEN
+                    mostrarParabuscar();
+                    bind = 43;//Reporte de pagos TD
+                    crcotd= "TD"; 
                     break;
                 default:
                     break;
@@ -544,7 +737,8 @@ namespace CapasCxC.Interfaces.Reportes
                     break;
             }
         }
-        #endregion
+      
+
 
         protected void btnSidebar5_Click(object sender, ImageClickEventArgs e)
         {
@@ -562,7 +756,6 @@ namespace CapasCxC.Interfaces.Reportes
                     break;
             }
         }
-
-
-    }
+        #endregion
+         }
 }
