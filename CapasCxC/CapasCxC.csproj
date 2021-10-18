@@ -196,6 +196,7 @@
     <Content Include="img\ingresarCliente.png" />
     <Content Include="img\ingreso.png" />
     <Content Include="img\inspect.png" />
+    <Content Include="img\Login.png" />
     <Content Include="img\moroso.png" />
     <Content Include="img\OtrasTransacciones.png" />
     <Content Include="img\pagos.png" />

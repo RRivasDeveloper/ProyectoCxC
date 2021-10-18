@@ -9,36 +9,38 @@
     <link href="../../css/misEstilos.css" rel="stylesheet" />
     <title></title>
 </head>
-<body class="text-center">
-    <form id="form1" runat="server" class="" >
-        <div class="login2">
+<body class="text-center" style="background-color: #212529">
+    <div class="bg-image align-items-center bg-dark fondo">
 
 
-        <main class="login">
+        <form id="form1" runat="server" class="">
+            <div class="centrarvertical">
 
-            <img class="mb-4" src="../../img/cpc.png" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
-                <label for="floatingInput">Email address</label>
+                <main class="login">
+
+                    <img class="mb-4" src="../../img/Login.png"  width="" height="150px">
+                    <h1 class="h3 mb-3 fw-normal" style="color:white">Ingreso a CxC</h1>
+
+                    <div class="form-floating">
+                        <asp:TextBox ID="txtUsuario" CssClass="form-control"    placeholder=" Ingrese su Usuario"   runat="server"></asp:TextBox>
+                        <asp:Label ID="LbUsuario" AssociatedControlID="txtUsuario"  Text="Ingrese su Usuario" runat="server" ></asp:Label>
+                    </div>
+                    <div class="form-floating">
+                        <input runat="server"  type="password" class="form-control"  id="txtPassword" placeholder="Password" />
+                        <asp:Label ID="Label2" AssociatedControlID="txtPassword"  Text="Ingrese su Contraseña" runat="server" ></asp:Label>
+                        <!--label for="floatingPassword">Ingrese su Contraseña</label-->
+                    </div>
+
+
+                   
+                    <br />
+                    <asp:Button ID="Button1" CssClass="w-75 btn btn-lg btn-secondary"  runat="server" Text="Button" />
+                    <p class="mt-5 mb-3 text-muted">Analisis de Sistemas 2 - © 2021</p>
+
+                </main>
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
-                <label for="floatingPassword">Password</label>
-            </div>
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"/>
-                    Remember me
-                </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
-
-        </main>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 </html>
