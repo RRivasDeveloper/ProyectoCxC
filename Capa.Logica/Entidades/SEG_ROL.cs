@@ -17,13 +17,13 @@ namespace Capa.Logica.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SEG_ROL()
         {
-            this.SEG_USUARIO = new HashSet<SEG_USUARIO>();
+            this.SEG_USUARIO1 = new HashSet<SEG_USUARIO>();
         }
     
         public int ROL_Rol { get; set; }
         public string ROL_Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SEG_USUARIO> SEG_USUARIO { get; set; }
+        public virtual ICollection<SEG_USUARIO> SEG_USUARIO1 { get; set; }
     }
 }

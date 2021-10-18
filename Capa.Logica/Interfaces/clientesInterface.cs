@@ -19,5 +19,7 @@ namespace Capa.Logica.Interfaces
         public string Municipio { get; set; }
         public string Direccion { get; set; }
         public string NIT { get; set; }
+
+        public String nombreCompleto() { return PrimerNombre + " " + SegundoNombre + " " + PrimerApellido + " " + SegundoApellido; }
     }
 }

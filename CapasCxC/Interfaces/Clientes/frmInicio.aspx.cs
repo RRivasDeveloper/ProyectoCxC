@@ -34,6 +34,10 @@ namespace CapasCxC.Interfaces.Clientes
         {
 
         }
+        protected void btnFactura_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("../Factura/frmFacturaNueva.aspx", true);
+        }
 
         protected void btnPagos_Click(object sender, ImageClickEventArgs e)
         {

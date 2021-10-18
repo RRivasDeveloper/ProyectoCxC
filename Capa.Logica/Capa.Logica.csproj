@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\CrudClientes.cs" />
+    <Compile Include="Clases\CrudCredito.cs" />
+    <Compile Include="Clases\CrudDiasCredito.cs" />
+    <Compile Include="Clases\CrudFactura.cs" />
+    <Compile Include="Clases\CrudFacturaDet.cs" />
+    <Compile Include="Clases\CrudProducto.cs" />
+    <Compile Include="Clases\CrudTipoPago.cs" />
     <Compile Include="Entidades\CXC_CLIENTE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Entidades\CXC_TIPO_PERSONA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\database_firewall_rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,16 +138,31 @@
     <Compile Include="Entidades\SEG_USUARIO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\spConsultaUno1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\spConsultaUno_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\spConsulta_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\SP_CNS_DETALLE_FACTURA_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\SP_CNS_FACTURA_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\SP_LOGIN1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Sp_Login_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\SP_RPT_Clientes_EstadoCredito_Result.cs">
@@ -156,7 +180,19 @@
     <Compile Include="Entidades\SP_RPT_Facturacion_x_Fecha_TipoPago_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\SP_RPT_Historico_de_Pagos_CR_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\clientesInterface.cs" />
+    <Compile Include="Interfaces\CreditoInterface.cs" />
+    <Compile Include="Interfaces\DiasCreditoInterface.cs" />
+    <Compile Include="Interfaces\FacturaDetInterface.cs" />
+    <Compile Include="Interfaces\FacturaInterface.cs" />
+    <Compile Include="Interfaces\ProductoInterface.cs" />
+    <Compile Include="Interfaces\TipoPagoInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -24,3 +24,16 @@ C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CoreCompileI
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.dll
 C:\ProyectoAnalisis2\Capas\Capa.Logica\obj\Debug\Capa.Logica.pdb
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\Capa.Logica.dll.config
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\Capa.Logica.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\Capa.Logica.pdb
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\EntityFramework.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\EntityFramework.xml
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.csproj.CoreCompileInputs.cache
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.pdb
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.csprojAssemblyReference.cache

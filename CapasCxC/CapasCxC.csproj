@@ -55,11 +55,47 @@
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -176,6 +212,7 @@
     <Content Include="img\borrarClienteAzul.png" />
     <Content Include="img\buscar.png" />
     <Content Include="img\buscarCliente.png" />
+    <Content Include="img\cancel.png" />
     <Content Include="img\clientesContado2.png" />
     <Content Include="img\clients.jpg" />
     <Content Include="img\Consulta.png" />
@@ -191,7 +228,9 @@
     <Content Include="img\ingresarCliente.png" />
     <Content Include="img\ingreso.png" />
     <Content Include="img\inspect.png" />
+    <Content Include="img\limpiar.png" />
     <Content Include="img\moroso.png" />
+    <Content Include="img\nuevo.png" />
     <Content Include="img\pagos.png" />
     <Content Include="img\pendientePago.png" />
     <Content Include="img\Saldo.png" />
@@ -201,6 +240,9 @@
     <Content Include="Interfaces\Clientes\frmBase.aspx" />
     <Content Include="Interfaces\Clientes\frmCrudCliente.aspx" />
     <Content Include="Interfaces\Clientes\frmInicio.aspx" />
+    <Content Include="Interfaces\Factura\frmFacturaNueva.aspx" />
+    <Content Include="Interfaces\Factura\frmFacturaBusqueda.aspx" />
+    <Content Include="Interfaces\Factura\frmFacturaResultado.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManCategoria.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManPlazo.aspx" />
@@ -284,6 +326,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpClientService\Afiliado.cs" />
+    <Compile Include="Interfaces\Factura\frmFacturaBusqueda.aspx.cs">
+      <DependentUpon>frmFacturaBusqueda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Factura\frmFacturaBusqueda.aspx.designer.cs">
+      <DependentUpon>frmFacturaBusqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Factura\frmFacturaResultado.aspx.cs">
+      <DependentUpon>frmFacturaResultado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Factura\frmFacturaResultado.aspx.designer.cs">
+      <DependentUpon>frmFacturaResultado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Factura\HttpClientGet.cs" />
     <Compile Include="Interfaces\Clientes\fmrClientes.aspx.cs">
       <DependentUpon>fmrClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +369,14 @@
     </Compile>
     <Compile Include="Interfaces\Clientes\frmInicio.aspx.designer.cs">
       <DependentUpon>frmInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\Factura\Afiliado.cs" />
+    <Compile Include="Interfaces\Factura\frmFacturaNueva.aspx.cs">
+      <DependentUpon>frmFacturaNueva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Factura\frmFacturaNueva.aspx.designer.cs">
+      <DependentUpon>frmFacturaNueva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx.cs">
       <DependentUpon>frmCategoriaDet.aspx</DependentUpon>
@@ -382,6 +448,9 @@
       <Project>{975af202-c13c-442a-bedd-0f7e46a3f983}</Project>
       <Name>Capa.Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

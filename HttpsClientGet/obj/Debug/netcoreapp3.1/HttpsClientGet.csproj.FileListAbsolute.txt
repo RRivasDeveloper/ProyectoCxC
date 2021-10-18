@@ -1,0 +1,14 @@
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.AssemblyInfoInputs.cache
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.AssemblyInfo.cs
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.deps.json
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.pdb
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.csproj.CoreCompileInputs.cache
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.pdb
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.exe
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.runtimeconfig.json
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\HttpsClientGet.runtimeconfig.dev.json
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.csproj.CopyComplete
+C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\ProyectoCxC\HttpsClientGet\obj\Debug\netcoreapp3.1\HttpsClientGet.genruntimeconfig.cache

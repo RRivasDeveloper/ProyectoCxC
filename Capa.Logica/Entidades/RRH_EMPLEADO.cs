@@ -18,7 +18,7 @@ namespace Capa.Logica.Entidades
         public RRH_EMPLEADO()
         {
             this.CXC_CLIENTE = new HashSet<CXC_CLIENTE>();
-            this.SEG_USUARIO = new HashSet<SEG_USUARIO>();
+            this.SEG_USUARIO1 = new HashSet<SEG_USUARIO>();
         }
     
         public int RRH_Empleado1 { get; set; }
@@ -32,6 +32,6 @@ namespace Capa.Logica.Entidades
         public virtual ICollection<CXC_CLIENTE> CXC_CLIENTE { get; set; }
         public virtual RRH_PUESTO RRH_PUESTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SEG_USUARIO> SEG_USUARIO { get; set; }
+        public virtual ICollection<SEG_USUARIO> SEG_USUARIO1 { get; set; }
     }
 }
