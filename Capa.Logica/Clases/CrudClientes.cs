@@ -163,6 +163,7 @@ namespace Capa.Logica.Clases
                                                                       where q.PER_Identificacion == id
                                                                       select new Interfaces.clientesInterface
                                                                       {
+                                                                          Persona = q.PER_Persona,
                                                                           PrimerNombre = q.PER_PrimerNombre,
                                                                           SegundoNombre = q.PER_SegundoApellido,
                                                                           PrimerApellido = q.PER_PrimerApellido,

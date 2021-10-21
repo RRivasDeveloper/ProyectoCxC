@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Capa.Logica.Interfaces;
 
 namespace Capa.Logica.Clases
 {
@@ -251,6 +252,115 @@ namespace Capa.Logica.Clases
         }
         #endregion
 
+        #region insertar objFactura
+        public string InsertarFactura(FacturaInterface factura)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_FACTURA obtFactura = new Entidades.CXC_FACTURA
+                    {
+                        FAC_Factura = factura.Factura,
+                        FAC_Serie = factura.Serie,
+                        FAC_Numero = factura.Numero,
+                        FAC_Fecha = factura.Fecha,
+                        FAC_TOTAL = factura.Total,
+                        FAC_Certificado = factura.Certificado,
+                        FAC_FirmaElectronica = factura.FirmaElectronica,
+                        EMP_Empresa = factura.Empresa,
+                        CLI_Cliente = factura.Cliente,
+                        TPA_TipoPago = factura.TipoPago
+                    };
+                    objEntidad.CXC_FACTURA.Add(obtFactura);
+                    objEntidad.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            return "Se insertó Proceso con Exito";
+        }
+        #endregion
+
+        #region insertar factura SP
+        public string insertarSP(FacturaInterface factura)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    return "CORRECTO";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region Obtener emisor
+        public int getEmpresa()
+        {
+
+            return 1;
+        }
+        #endregion
+
+        #region insertar detalle
+        public string insertarDetalle(int factura, decimal cantidad, int producto, decimal precioventa)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_DETALLEFACTURA obtFacturaDet = new Entidades.CXC_DETALLEFACTURA
+                    {
+                        FAC_Factura = factura,
+                        DTF_Cantidad = cantidad,
+                        PRD_Producto = producto,
+                        PRD_PrecioVentan = precioventa
+                    };
+                    objEntidad.CXC_DETALLEFACTURA.Add(obtFacturaDet);
+                    objEntidad.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return "Se insertó Proceso con Exito";
+        }
+        #endregion
+
+        #region Actualizar monto
+        public string actualizarMonto(int factura, decimal total)//se ingresan lo datos que se guardaran en la bd
+        {
+            try
+            {//se utiliza la entidad de base de datos
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_FACTURA obtPersona = (from q in objEntidad.CXC_FACTURA
+                                                        where q.FAC_Factura == factura
+                                                        select q).First();
+
+                    obtPersona.FAC_TOTAL = total;
+
+                    objEntidad.SaveChanges();//solo se guardan los cambios porque ya existe
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return "Se Modifico con Exito";
+        }
+        #endregion
     }
 }

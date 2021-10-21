@@ -153,6 +153,9 @@
     <Compile Include="Entidades\SP_CNS_FACTURA_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\SP_CNS_PAGO_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -169,6 +172,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\SP_RPT_CLIENTES_X_REGION_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\SP_RPT_CREDITOS_CANCELADOS_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\SP_RPT_CREDITOS_X_PAGAR_Result.cs">

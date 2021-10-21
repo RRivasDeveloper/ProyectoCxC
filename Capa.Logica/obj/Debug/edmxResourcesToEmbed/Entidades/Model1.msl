@@ -454,5 +454,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Acceso" FunctionName="CxCDB.Store.SP_Acceso" />
+    <FunctionImportMapping FunctionImportName="SP_CNS_PAGO" FunctionName="CxCDB.Store.SP_CNS_PAGO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_CNS_PAGO_Result">
+          <ScalarProperty Name="PRP_ProyeccionPago" ColumnName="PRP_ProyeccionPago" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="NIT" ColumnName="NIT" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="FechaProyectada" ColumnName="FechaProyectada" />
+          <ScalarProperty Name="PRP_MontoCuota" ColumnName="PRP_MontoCuota" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_INS_CLIENTES" FunctionName="CxCDB.Store.SP_INS_CLIENTES" />
+    <FunctionImportMapping FunctionImportName="SP_INS_FACTURA" FunctionName="CxCDB.Store.SP_INS_FACTURA" />
+    <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_CANCELADOS" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_CANCELADOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result">
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+          <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+          <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+          <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+          <ScalarProperty Name="DCR_Descripcion" ColumnName="DCR_Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_UPD_CLIENTES" FunctionName="CxCDB.Store.SP_UPD_CLIENTES" />
+    <FunctionImportMapping FunctionImportName="SP_VALIDA_EXISTENCIA_CLIENTE" FunctionName="CxCDB.Store.SP_VALIDA_EXISTENCIA_CLIENTE" />
   </EntityContainerMapping>
 </Mapping>

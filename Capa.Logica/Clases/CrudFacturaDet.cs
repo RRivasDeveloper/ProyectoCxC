@@ -36,7 +36,31 @@ namespace Capa.Logica.Clases
             }
         }
         #endregion
-        #region SP creacion de detalle
+        #region insertar detalle
+        public string insertarDetalle(Interfaces.FacturaDetInterface facturaDet)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_DETALLEFACTURA obtFacturaDet = new Entidades.CXC_DETALLEFACTURA
+                    {
+                        FAC_Factura = facturaDet.Factura,
+                        DTF_Cantidad = facturaDet.Cantidad, 
+                        PRD_Producto = facturaDet.Producto,
+                        PRD_PrecioVentan = facturaDet.PrecioVenta
+                    };
+                    objEntidad.CXC_DETALLEFACTURA.Add(obtFacturaDet);
+                    objEntidad.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return "Se insertó Proceso con Exito";
+        }
         #endregion
     }
 }

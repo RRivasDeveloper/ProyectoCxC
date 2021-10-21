@@ -17,9 +17,20 @@ namespace Capa.Logica.Interfaces
         public int Existencia { get; set; }
         public int Costo { get; set; }
         public int PrecioVenta { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Total { get; set; }
         public ProductoInterface()
         {
             this.Producto = 0;
+        }
+
+        public int getTotal()
+        {
+            return PrecioVenta * Cantidad;
+        }
+        public void setCantidad()
+        {
+            Total = PrecioVenta * Cantidad;
         }
     }
 }

@@ -437,6 +437,10 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="SP_Acceso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vUsuario" Type="varchar" Mode="In" />
+    <Parameter Name="vPassw" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -450,6 +454,9 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
   <Function Name="SP_CNS_FACTURA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vIdentificacion" Type="varchar" Mode="In" />
     <Parameter Name="vNumero" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_CNS_PAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDocumento" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -469,6 +476,26 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
   </Function>
+  <Function Name="SP_INS_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vPrimerNombre" Type="varchar" Mode="In" />
+    <Parameter Name="vSegundoNombre" Type="varchar" Mode="In" />
+    <Parameter Name="vPrimerApellido" Type="varchar" Mode="In" />
+    <Parameter Name="vSegundoApellido" Type="varchar" Mode="In" />
+    <Parameter Name="vIdentificacion" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="vTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="vDepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="vMunicipio" Type="varchar" Mode="In" />
+    <Parameter Name="vDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="vNIT" Type="varchar" Mode="In" />
+    <Parameter Name="vRegion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_INS_FACTURA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vIdentificacion" Type="varchar" Mode="In" />
+    <Parameter Name="vSerie" Type="varchar" Mode="In" />
+    <Parameter Name="vMetodoPago" Type="int" Mode="In" />
+    <Parameter Name="vPlazo" Type="int" Mode="In" />
+  </Function>
   <Function Name="SP_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vUsuario" Type="varchar" Mode="In" />
     <Parameter Name="vPassw" Type="varchar" Mode="In" />
@@ -485,6 +512,10 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
   </Function>
   <Function Name="SP_RPT_CLIENTES_X_REGION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vTipPago" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_RPT_CREDITOS_CANCELADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicial" Type="date" Mode="In" />
+    <Parameter Name="FechaFinal" Type="date" Mode="In" />
   </Function>
   <Function Name="SP_RPT_CREDITOS_X_PAGAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FechaInicial" Type="date" Mode="In" />
@@ -513,7 +544,24 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
     <Parameter Name="FechaFinal" Type="date" Mode="In" />
     <Parameter Name="vTipoPago" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="SP_UPD_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vPrimerNombre" Type="varchar" Mode="In" />
+    <Parameter Name="vSegundoNombre" Type="varchar" Mode="In" />
+    <Parameter Name="vPrimerApellido" Type="varchar" Mode="In" />
+    <Parameter Name="vSegundoApellido" Type="varchar" Mode="In" />
+    <Parameter Name="vIdentificacion" Type="varchar" Mode="In" />
+    <Parameter Name="vFechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="vTelefono" Type="varchar" Mode="In" />
+    <Parameter Name="vDepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="vMunicipio" Type="varchar" Mode="In" />
+    <Parameter Name="vDireccion" Type="varchar" Mode="In" />
+    <Parameter Name="vNIT" Type="varchar" Mode="In" />
+    <Parameter Name="vRegion" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_VALIDA_EXISTENCIA_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vDocumento" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="spConsulta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="spConsultaUno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDNIT" Type="varchar" Mode="In" />

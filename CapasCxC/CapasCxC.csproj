@@ -207,6 +207,7 @@
     <Content Include="css\bootstrap.rtl.min.css.map" />
     <Content Include="img\actualizar.png" />
     <Content Include="img\agregarCliente.png" />
+    <Content Include="img\back.png" />
     <Content Include="img\borrar.png" />
     <Content Include="img\borrarCliente.png" />
     <Content Include="img\borrarClienteAzul.png" />
@@ -231,6 +232,7 @@
     <Content Include="img\limpiar.png" />
     <Content Include="img\moroso.png" />
     <Content Include="img\nuevo.png" />
+    <Content Include="img\okay.png" />
     <Content Include="img\pagos.png" />
     <Content Include="img\pendientePago.png" />
     <Content Include="img\Saldo.png" />

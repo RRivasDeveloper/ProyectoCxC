@@ -33,49 +33,58 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.ImageButton inicioLogo;
 
         /// <summary>
-        /// Control imgButtonLimpiar.
+        /// Control imbNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonLimpiar;
+        protected global::System.Web.UI.WebControls.ImageButton imbNuevo;
 
         /// <summary>
-        /// Control BtnLimpiar.
+        /// Control imbImprimir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLimpiar;
+        protected global::System.Web.UI.WebControls.ImageButton imbImprimir;
 
         /// <summary>
-        /// Control imgButtonBusqueda.
+        /// Control imbActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonBusqueda;
+        protected global::System.Web.UI.WebControls.ImageButton imbActualizar;
 
         /// <summary>
-        /// Control btnBuscar.
+        /// Control imbCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.ImageButton imbCancelar;
 
         /// <summary>
-        /// Control lblMetodo.
+        /// Control imbCredito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMetodo;
+        protected global::System.Web.UI.WebControls.ImageButton imbCredito;
+
+        /// <summary>
+        /// Control lblFactura.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFactura;
 
         /// <summary>
         /// Control txtFactura.
@@ -87,13 +96,13 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.TextBox txtFactura;
 
         /// <summary>
-        /// Control lblDias.
+        /// Control lblAutorizacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDias;
+        protected global::System.Web.UI.WebControls.Label lblAutorizacion;
 
         /// <summary>
         /// Control txtAutorizacion.
@@ -105,13 +114,13 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.TextBox txtAutorizacion;
 
         /// <summary>
-        /// Control Label1.
+        /// Control lblFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblFecha;
 
         /// <summary>
         /// Control txtEmision.
@@ -123,13 +132,13 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.TextBox txtEmision;
 
         /// <summary>
-        /// Control Label2.
+        /// Control lblNit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblNit;
 
         /// <summary>
         /// Control txtNit.
@@ -141,13 +150,13 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.TextBox txtNit;
 
         /// <summary>
-        /// Control Label3.
+        /// Control lblCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblCliente;
 
         /// <summary>
         /// Control txtCliente.
@@ -157,5 +166,68 @@ namespace CapasCxC.Interfaces.Factura
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCliente;
+
+        /// <summary>
+        /// Control gvDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDetalle;
+
+        /// <summary>
+        /// Control lblSubTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubTotal;
+
+        /// <summary>
+        /// Control txtSubTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSubTotal;
+
+        /// <summary>
+        /// Control lblIVA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIVA;
+
+        /// <summary>
+        /// Control txtIVA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIVA;
+
+        /// <summary>
+        /// Control lblTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
+
+        /// <summary>
+        /// Control txtTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
     }
 }

@@ -24,40 +24,13 @@ namespace CapasCxC.Interfaces.Factura
         protected global::System.Web.UI.WebControls.ImageButton inicioLogo;
 
         /// <summary>
-        /// Control imgButtonLimpiar.
+        /// Control imbRegresar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonLimpiar;
-
-        /// <summary>
-        /// Control BtnLimpiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLimpiar;
-
-        /// <summary>
-        /// Control imgButtonBusqueda.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonBusqueda;
-
-        /// <summary>
-        /// Control btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.ImageButton imbRegresar;
 
         /// <summary>
         /// Control txtDato1.

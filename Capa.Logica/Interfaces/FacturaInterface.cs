@@ -21,5 +21,10 @@ namespace Capa.Logica.Interfaces
         public int TipoPago { get; set; }
         public List<FacturaDetInterface> CXC_FACTURADETALLE { get; set; }
 
+        public FacturaInterface()
+        {
+            Empresa = 1;
+        }
+
     }
 }

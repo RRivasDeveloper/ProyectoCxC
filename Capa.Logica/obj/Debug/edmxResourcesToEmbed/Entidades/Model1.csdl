@@ -591,6 +591,54 @@
       <End Role="SEG_ROL" EntitySet="SEG_ROL" />
       <End Role="SEG_USUARIO1" EntitySet="SEG_USUARIOSet" />
     </AssociationSet>
+    <FunctionImport Name="SP_Acceso" ReturnType="Collection(String)">
+      <Parameter Name="vUsuario" Mode="In" Type="String" />
+      <Parameter Name="vPassw" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CNS_PAGO" ReturnType="Collection(CxCDB.SP_CNS_PAGO_Result)">
+      <Parameter Name="vDocumento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_INS_CLIENTES">
+      <Parameter Name="vPrimerNombre" Mode="In" Type="String" />
+      <Parameter Name="vSegundoNombre" Mode="In" Type="String" />
+      <Parameter Name="vPrimerApellido" Mode="In" Type="String" />
+      <Parameter Name="vSegundoApellido" Mode="In" Type="String" />
+      <Parameter Name="vIdentificacion" Mode="In" Type="String" />
+      <Parameter Name="vFechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="vTelefono" Mode="In" Type="String" />
+      <Parameter Name="vDepartamento" Mode="In" Type="String" />
+      <Parameter Name="vMunicipio" Mode="In" Type="String" />
+      <Parameter Name="vDireccion" Mode="In" Type="String" />
+      <Parameter Name="vNIT" Mode="In" Type="String" />
+      <Parameter Name="vRegion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_INS_FACTURA">
+      <Parameter Name="vIdentificacion" Mode="In" Type="String" />
+      <Parameter Name="vSerie" Mode="In" Type="String" />
+      <Parameter Name="vMetodoPago" Mode="In" Type="Int32" />
+      <Parameter Name="vPlazo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_RPT_CREDITOS_CANCELADOS" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result)">
+      <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_UPD_CLIENTES">
+      <Parameter Name="vPrimerNombre" Mode="In" Type="String" />
+      <Parameter Name="vSegundoNombre" Mode="In" Type="String" />
+      <Parameter Name="vPrimerApellido" Mode="In" Type="String" />
+      <Parameter Name="vSegundoApellido" Mode="In" Type="String" />
+      <Parameter Name="vIdentificacion" Mode="In" Type="String" />
+      <Parameter Name="vFechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="vTelefono" Mode="In" Type="String" />
+      <Parameter Name="vDepartamento" Mode="In" Type="String" />
+      <Parameter Name="vMunicipio" Mode="In" Type="String" />
+      <Parameter Name="vDireccion" Mode="In" Type="String" />
+      <Parameter Name="vNIT" Mode="In" Type="String" />
+      <Parameter Name="vRegion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_VALIDA_EXISTENCIA_CLIENTE" ReturnType="Collection(Int32)">
+      <Parameter Name="vDocumento" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
     <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
@@ -818,4 +866,29 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="SP_CNS_PAGO_Result">
+    <Property Type="Int32" Name="PRP_ProyeccionPago" Nullable="false" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="DateTime" Name="FechaProyectada" Nullable="true" />
+    <Property Type="Decimal" Name="PRP_MontoCuota" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_RPT_CREDITOS_CANCELADOS_Result">
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+    <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+    <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+    <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+    <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+    <Property Type="String" Name="DCR_Descripcion" Nullable="true" MaxLength="80" />
+  </ComplexType>
 </Schema>

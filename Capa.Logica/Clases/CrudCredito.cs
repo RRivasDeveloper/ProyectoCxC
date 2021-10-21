@@ -39,5 +39,54 @@ namespace Capa.Logica.Clases
             }
         }
         #endregion
+
+        #region Actualizar monto
+        public string actualizarMonto(int factura, decimal total)//se ingresan lo datos que se guardaran en la bd
+        {
+            try
+            {//se utiliza la entidad de base de datos
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_CREDITO obtcredito = (from q in objEntidad.CXC_CREDITO
+                                                        where q.FAC_Factura == factura
+                                                        select q).First();
+
+                    obtcredito.CRE_MontoCredito = total;
+
+                    objEntidad.SaveChanges();//solo se guardan los cambios porque ya existe
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return "Se Modifico con Exito";
+        }
+        #endregion
+        #region Actualizar plazo
+        public string actualizarPlazo(int factura, int plazo)//se ingresan lo datos que se guardaran en la bd
+        {
+            try
+            {//se utiliza la entidad de base de datos
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Entidades.CXC_CREDITO obtcredito = (from q in objEntidad.CXC_CREDITO
+                                                        where q.FAC_Factura == factura
+                                                        select q).First();
+
+                    obtcredito.CXC_DIASCREDITO.DCR_DiasCredito = plazo;
+
+                    objEntidad.SaveChanges();//solo se guardan los cambios porque ya existe
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return "Se Modifico con Exito";
+        }
+        #endregion
     }
 }

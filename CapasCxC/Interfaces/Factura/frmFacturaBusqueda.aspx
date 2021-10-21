@@ -4,44 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/misEstilos.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../../img/LogoIcon.ico" type="image/x-icon" />
+    <title>Facturas</title>
 </head>
 <body>
     <form id="frmFacturaBusqueda" runat="server">
-        <div>
-            <header class="p-3 bg-dark text-white">
+        <header class="p-3 bg-dark text-white">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"></a>
                 <asp:ImageButton runat="server" ID="inicioLogo" ImageUrl="~/img/Logo.jpeg" AlternateText="Inicio" OnClick="inicioLogo_Click" class="iconos" />
+                <a href="frmInicio.aspx" class="nav-link px-2 text-secondary"><strong>Inicio</strong></a>
                 <ul class="nav col-21 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="frmInicio.aspx" class="nav-link px-2 text-secondary"><strong>Inicio</strong></a></li>
-                    
                     <li>
-
-                        <asp:ImageButton runat="server" ID="imgButtonLimpiar" ImageUrl="~/img/limpiar.png" AlternateText="Limpiar formulario" class="iconos" /></li>
-      
-                    <li>
+                        <asp:ImageButton
+                            ID="imbRegresar"
+                            runat="server"
+                            class="iconos"
+                            ImageUrl="~/img/back.png"
+                            CommandName="Select"
+                            ToolTip="Regresar"
+                            OnClick="imbRegresar_Click"
+                            Width="50px"
+                            Height="50px"
+                            />
+                        <a href="frmFacturaNueva.aspx" class="nav-link px-2 text-white">Reportes</a>
                     </li>
-                    <li>
-                        <asp:Button ID="BtnLimpiar" CommandName="Select"
-                            ToolTip="Limpiar formulario"
-                            Style="display: block;" runat="server" Text="Limpiar" />
-                    </li>
-
-                    <li>
-
-                        <asp:ImageButton runat="server" ID="imgButtonBusqueda" ImageUrl="~/img/buscar.png" AlternateText="Consulta de Facturas" class="iconos" />
-
-                    </li>
-
-                    <li>
-
-                        <asp:Button ID="btnBuscar" CommandName="Select"
-                            ToolTip="Seleccionar"
-                            Style="display: block;" runat="server" Text="Buscar Factura" />
-                    </li>
-                   </ul>                    
+                </ul>                    
             </div>
             </header>
 
@@ -69,9 +60,11 @@
 
                 </div>
                 <asp:GridView ID="gvFacturas" runat="server" EmptyDataText="No hay Registros"
+                    ShowHeaderWhenEmpty="true"
                     AllowPaging="True" OnPageIndexChanging="cambiodDePagina"
                     BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
-                    CellPadding="3" CellSpacing="2" AllowSorting="True" PageSize="20">
+                    CellPadding="3" CellSpacing="2" AllowSorting="false" PageSize="20" OnRowDataBound="gvFacturas_RowDataBound" OnSelectedIndexChanged="gvFacturas_SelectedIndexChanged"
+                     EnableEventValidation = "false">
                     <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                     <HeaderStyle BackColor="#c9640a" Font-Bold="True" ForeColor="White" />
                     <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
@@ -83,7 +76,7 @@
                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                 </asp:GridView>
             </div>
-        </div>
+            
     </form>
     <script src="../../js/bootstrap.bundle.min.js"></script>
 </body>

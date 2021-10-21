@@ -8,6 +8,7 @@ namespace Capa.Logica.Interfaces
 {
     public class clientesInterface
     {
+        public int Persona { get; set; }
         public string PrimerNombre { get; set; }
         public string SegundoNombre { get; set; }
         public string PrimerApellido { get; set; }
