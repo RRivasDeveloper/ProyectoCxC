@@ -249,6 +249,15 @@ namespace CapasCxC.Interfaces.Reportes
         protected global::System.Web.UI.WebControls.ImageButton btnBuscar;
 
         /// <summary>
+        /// Control LblBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblBuscar;
+
+        /// <summary>
         /// Control TxtFechaInicial.
         /// </summary>
         /// <remarks>

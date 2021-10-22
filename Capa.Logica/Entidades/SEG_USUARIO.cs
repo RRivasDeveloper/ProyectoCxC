@@ -16,7 +16,6 @@ namespace Capa.Logica.Entidades
     {
         public int USU_Usuario { get; set; }
         public string USU_UsuarioSistema { get; set; }
-        public string USU_Contrasenia { get; set; }
         public string USU_Estado { get; set; }
         public Nullable<int> ROL_Rol { get; set; }
         public Nullable<int> RRH_Empleado { get; set; }

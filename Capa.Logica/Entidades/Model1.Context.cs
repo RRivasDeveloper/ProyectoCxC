@@ -45,9 +45,9 @@ namespace Capa.Logica.Entidades
         public virtual DbSet<RRH_EMPLEADO> RRH_EMPLEADO { get; set; }
         public virtual DbSet<RRH_PUESTO> RRH_PUESTO { get; set; }
         public virtual DbSet<SEG_ROL> SEG_ROL { get; set; }
-        public virtual DbSet<SEG_USUARIO> SEG_USUARIO { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<SEG_USUARIO> SEG_USUARIO { get; set; }
     
         public virtual ObjectResult<SP_RPT_CLIENTES_X_REGION_Result> SP_RPT_CLIENTES_X_REGION(string vTipPago)
         {
@@ -265,19 +265,6 @@ namespace Capa.Logica.Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
         }
     
-        public virtual ObjectResult<Sp_Login_Result> Sp_Login(string vUsuario, string vPassw)
-        {
-            var vUsuarioParameter = vUsuario != null ?
-                new ObjectParameter("vUsuario", vUsuario) :
-                new ObjectParameter("vUsuario", typeof(string));
-    
-            var vPasswParameter = vPassw != null ?
-                new ObjectParameter("vPassw", vPassw) :
-                new ObjectParameter("vPassw", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sp_Login_Result>("Sp_Login", vUsuarioParameter, vPasswParameter);
-        }
-    
         public virtual int SP_RPT_OtroPago_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
@@ -395,19 +382,6 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("vTipTransaccion", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_OtroPago", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
-        }
-    
-        public virtual ObjectResult<SP_LOGIN1_Result> SP_LOGIN1(string vUsuario, string vPassw)
-        {
-            var vUsuarioParameter = vUsuario != null ?
-                new ObjectParameter("vUsuario", vUsuario) :
-                new ObjectParameter("vUsuario", typeof(string));
-    
-            var vPasswParameter = vPassw != null ?
-                new ObjectParameter("vPassw", vPassw) :
-                new ObjectParameter("vPassw", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LOGIN1_Result>("SP_LOGIN1", vUsuarioParameter, vPasswParameter);
         }
     
         public virtual ObjectResult<spConsultaUno11_Result> spConsultaUno11(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
@@ -532,6 +506,181 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("FechaFinal", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_CANCELADOS_Result>("SP_RPT_CREDITOS_CANCELADOS", fechaInicialParameter, fechaFinalParameter);
+        }
+    
+        public virtual ObjectResult<SP_CNS_PAGO_Result> SP_CNS_PAGO(string vDocumento)
+        {
+            var vDocumentoParameter = vDocumento != null ?
+                new ObjectParameter("vDocumento", vDocumento) :
+                new ObjectParameter("vDocumento", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_CNS_PAGO_Result>("SP_CNS_PAGO", vDocumentoParameter);
+        }
+    
+        public virtual int SP_INS_CLIENTES(string vPrimerNombre, string vSegundoNombre, string vPrimerApellido, string vSegundoApellido, string vIdentificacion, Nullable<System.DateTime> vFechaNacimiento, string vTelefono, string vDepartamento, string vMunicipio, string vDireccion, string vNIT, string vRegion)
+        {
+            var vPrimerNombreParameter = vPrimerNombre != null ?
+                new ObjectParameter("vPrimerNombre", vPrimerNombre) :
+                new ObjectParameter("vPrimerNombre", typeof(string));
+    
+            var vSegundoNombreParameter = vSegundoNombre != null ?
+                new ObjectParameter("vSegundoNombre", vSegundoNombre) :
+                new ObjectParameter("vSegundoNombre", typeof(string));
+    
+            var vPrimerApellidoParameter = vPrimerApellido != null ?
+                new ObjectParameter("vPrimerApellido", vPrimerApellido) :
+                new ObjectParameter("vPrimerApellido", typeof(string));
+    
+            var vSegundoApellidoParameter = vSegundoApellido != null ?
+                new ObjectParameter("vSegundoApellido", vSegundoApellido) :
+                new ObjectParameter("vSegundoApellido", typeof(string));
+    
+            var vIdentificacionParameter = vIdentificacion != null ?
+                new ObjectParameter("vIdentificacion", vIdentificacion) :
+                new ObjectParameter("vIdentificacion", typeof(string));
+    
+            var vFechaNacimientoParameter = vFechaNacimiento.HasValue ?
+                new ObjectParameter("vFechaNacimiento", vFechaNacimiento) :
+                new ObjectParameter("vFechaNacimiento", typeof(System.DateTime));
+    
+            var vTelefonoParameter = vTelefono != null ?
+                new ObjectParameter("vTelefono", vTelefono) :
+                new ObjectParameter("vTelefono", typeof(string));
+    
+            var vDepartamentoParameter = vDepartamento != null ?
+                new ObjectParameter("vDepartamento", vDepartamento) :
+                new ObjectParameter("vDepartamento", typeof(string));
+    
+            var vMunicipioParameter = vMunicipio != null ?
+                new ObjectParameter("vMunicipio", vMunicipio) :
+                new ObjectParameter("vMunicipio", typeof(string));
+    
+            var vDireccionParameter = vDireccion != null ?
+                new ObjectParameter("vDireccion", vDireccion) :
+                new ObjectParameter("vDireccion", typeof(string));
+    
+            var vNITParameter = vNIT != null ?
+                new ObjectParameter("vNIT", vNIT) :
+                new ObjectParameter("vNIT", typeof(string));
+    
+            var vRegionParameter = vRegion != null ?
+                new ObjectParameter("vRegion", vRegion) :
+                new ObjectParameter("vRegion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_INS_CLIENTES", vPrimerNombreParameter, vSegundoNombreParameter, vPrimerApellidoParameter, vSegundoApellidoParameter, vIdentificacionParameter, vFechaNacimientoParameter, vTelefonoParameter, vDepartamentoParameter, vMunicipioParameter, vDireccionParameter, vNITParameter, vRegionParameter);
+        }
+    
+        public virtual int SP_INS_FACTURA(string vIdentificacion, string vSerie, Nullable<int> vMetodoPago, Nullable<int> vPlazo)
+        {
+            var vIdentificacionParameter = vIdentificacion != null ?
+                new ObjectParameter("vIdentificacion", vIdentificacion) :
+                new ObjectParameter("vIdentificacion", typeof(string));
+    
+            var vSerieParameter = vSerie != null ?
+                new ObjectParameter("vSerie", vSerie) :
+                new ObjectParameter("vSerie", typeof(string));
+    
+            var vMetodoPagoParameter = vMetodoPago.HasValue ?
+                new ObjectParameter("vMetodoPago", vMetodoPago) :
+                new ObjectParameter("vMetodoPago", typeof(int));
+    
+            var vPlazoParameter = vPlazo.HasValue ?
+                new ObjectParameter("vPlazo", vPlazo) :
+                new ObjectParameter("vPlazo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_INS_FACTURA", vIdentificacionParameter, vSerieParameter, vMetodoPagoParameter, vPlazoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SP_VALIDA_EXISTENCIA_CLIENTE(string vDocumento)
+        {
+            var vDocumentoParameter = vDocumento != null ?
+                new ObjectParameter("vDocumento", vDocumento) :
+                new ObjectParameter("vDocumento", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_VALIDA_EXISTENCIA_CLIENTE", vDocumentoParameter);
+        }
+    
+        public virtual ObjectResult<spConsultaUno13_Result> spConsultaUno13(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno13_Result>("spConsultaUno13", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_LOGIN(string vUsuario, string vPassw)
+        {
+            var vUsuarioParameter = vUsuario != null ?
+                new ObjectParameter("vUsuario", vUsuario) :
+                new ObjectParameter("vUsuario", typeof(string));
+    
+            var vPasswParameter = vPassw != null ?
+                new ObjectParameter("vPassw", vPassw) :
+                new ObjectParameter("vPassw", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_LOGIN", vUsuarioParameter, vPasswParameter);
+        }
+    
+        public virtual int SP_UPD_CLIENTES(string vPrimerNombre, string vSegundoNombre, string vPrimerApellido, string vSegundoApellido, string vIdentificacion, Nullable<System.DateTime> vFechaNacimiento, string vTelefono, string vDepartamento, string vMunicipio, string vDireccion, string vNIT, string vRegion)
+        {
+            var vPrimerNombreParameter = vPrimerNombre != null ?
+                new ObjectParameter("vPrimerNombre", vPrimerNombre) :
+                new ObjectParameter("vPrimerNombre", typeof(string));
+    
+            var vSegundoNombreParameter = vSegundoNombre != null ?
+                new ObjectParameter("vSegundoNombre", vSegundoNombre) :
+                new ObjectParameter("vSegundoNombre", typeof(string));
+    
+            var vPrimerApellidoParameter = vPrimerApellido != null ?
+                new ObjectParameter("vPrimerApellido", vPrimerApellido) :
+                new ObjectParameter("vPrimerApellido", typeof(string));
+    
+            var vSegundoApellidoParameter = vSegundoApellido != null ?
+                new ObjectParameter("vSegundoApellido", vSegundoApellido) :
+                new ObjectParameter("vSegundoApellido", typeof(string));
+    
+            var vIdentificacionParameter = vIdentificacion != null ?
+                new ObjectParameter("vIdentificacion", vIdentificacion) :
+                new ObjectParameter("vIdentificacion", typeof(string));
+    
+            var vFechaNacimientoParameter = vFechaNacimiento.HasValue ?
+                new ObjectParameter("vFechaNacimiento", vFechaNacimiento) :
+                new ObjectParameter("vFechaNacimiento", typeof(System.DateTime));
+    
+            var vTelefonoParameter = vTelefono != null ?
+                new ObjectParameter("vTelefono", vTelefono) :
+                new ObjectParameter("vTelefono", typeof(string));
+    
+            var vDepartamentoParameter = vDepartamento != null ?
+                new ObjectParameter("vDepartamento", vDepartamento) :
+                new ObjectParameter("vDepartamento", typeof(string));
+    
+            var vMunicipioParameter = vMunicipio != null ?
+                new ObjectParameter("vMunicipio", vMunicipio) :
+                new ObjectParameter("vMunicipio", typeof(string));
+    
+            var vDireccionParameter = vDireccion != null ?
+                new ObjectParameter("vDireccion", vDireccion) :
+                new ObjectParameter("vDireccion", typeof(string));
+    
+            var vNITParameter = vNIT != null ?
+                new ObjectParameter("vNIT", vNIT) :
+                new ObjectParameter("vNIT", typeof(string));
+    
+            var vRegionParameter = vRegion != null ?
+                new ObjectParameter("vRegion", vRegion) :
+                new ObjectParameter("vRegion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPD_CLIENTES", vPrimerNombreParameter, vSegundoNombreParameter, vPrimerApellidoParameter, vSegundoApellidoParameter, vIdentificacionParameter, vFechaNacimientoParameter, vTelefonoParameter, vDepartamentoParameter, vMunicipioParameter, vDireccionParameter, vNITParameter, vRegionParameter);
         }
     }
 }

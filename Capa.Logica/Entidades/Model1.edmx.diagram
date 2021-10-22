@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="618e824a25914e4aaadd4f15d6bf4624" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="CxCDB.CXC_CLIENTE" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="618e824a25914e4aaadd4f15d6bf4624" Name="Diagram1" ZoomLevel="127">
+        <EntityTypeShape EntityType="CxCDB.CXC_CLIENTE" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_CREDITO" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_DETALLEFACTURA" Width="1.5" PointX="15.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_DIASCREDITO" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="CxCDB.CXC_ESTADOCREDITO" Width="1.5" PointX="15.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_FACTURA" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_FORMAPAGO" Width="1.5" PointX="18" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CxCDB.CXC_PERSONA" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.CXC_PERSONA" Width="2.375" PointX="2.125" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_PRODUCTO" Width="1.5" PointX="13.5" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_PROYECCIONPAGO" Width="1.5" PointX="18" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.CXC_RECUPERACION" Width="1.5" PointX="20.25" PointY="5.25" IsExpanded="true" />
@@ -22,8 +22,7 @@
         <EntityTypeShape EntityType="CxCDB.CXC_TIPOTRANSACCION" Width="1.5" PointX="18" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.RRH_EMPLEADO" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CxCDB.RRH_PUESTO" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="CxCDB.SEG_ROL" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="CxCDB.SEG_USUARIO" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CxCDB.SEG_ROL" Width="1.5" PointX="5.875" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="CxCDB.Fk_Cliente" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_Empleado" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_Persona" ManuallyRouted="false" />
@@ -40,10 +39,11 @@
         <AssociationConnector Association="CxCDB.Fk_ProyeccionPago" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_TipoTransaccion" ManuallyRouted="false" />
         <AssociationConnector Association="CxCDB.Fk_Puesto" ManuallyRouted="false" />
-        <AssociationConnector Association="CxCDB.Fk_RRHEmpleado" ManuallyRouted="false" />
-        <AssociationConnector Association="CxCDB.Fk_Rol" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CxCDB.sysdiagrams" Width="1.5" PointX="5.375" PointY="9.75" />
         <EntityTypeShape EntityType="CxCDB.database_firewall_rules" Width="1.5" PointX="10.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CxCDB.SEG_USUARIO" Width="1.5" PointX="8.125" PointY="5.5" />
+        <AssociationConnector Association="CxCDB.Fk_RRHEmpleado" />
+        <AssociationConnector Association="CxCDB.Fk_Rol" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

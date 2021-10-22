@@ -148,7 +148,7 @@
                         </td>
 
 
-                        <td>
+                        <td style="text-align:center">
                             <asp:ImageButton
                                 Visible="false"
                                 ID="btnBuscar"
@@ -157,7 +157,11 @@
                                 ImageUrl="~/img/buscar.png"
                                 CommandName="Select"
                                 ToolTip="Buscar Rango"
-                                Style="display: block;" OnClick="btnBuscar_Click"></asp:ImageButton></td>
+                                Style="display: block;" OnClick="btnBuscar_Click"></asp:ImageButton>
+                            <asp:Label ID="LblBuscar"  Visible="false" CssClass="px-2 text-white" runat ="server" Text="Buscar"></asp:Label>
+                        </td>
+                        
+                       
 
                     </tr>
                     <tr>

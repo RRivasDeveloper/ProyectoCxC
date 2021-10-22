@@ -97,6 +97,7 @@ namespace CapasCxC.Interfaces.Reportes
             BtnFechaInicial.Visible = true;
             BtnFechaFinal.Visible = true;
             btnBuscar.Visible = true;
+            LblBuscar.Visible = true;
             TxtFechaFinal.Visible = true;
             TxtFechaFinal.Text = FechaFinal.ToShortDateString();
             TxtFechaInicial.Text = FechaInicial.ToShortDateString();
@@ -110,6 +111,7 @@ namespace CapasCxC.Interfaces.Reportes
             BtnFechaInicial.Visible = false;
             BtnFechaFinal.Visible = false;
             btnBuscar.Visible = false;
+            LblBuscar.Visible = false;
             TxtFechaFinal.Visible = false;
             TxtFechaInicial.Visible = false;
             TxtFechaInicial.ReadOnly = false;
@@ -233,13 +235,13 @@ namespace CapasCxC.Interfaces.Reportes
                     break;
                 case 3://clientes
                     ocultarBtnSidebar();
-                    sideBar1.Text = "Clientes por Region Contado";
+                    sideBar1.Text = "Listado de Clientes por Region";
                     btnSidebar1.ImageUrl = "~/img/clientesporregion.png";
                     sideBar2.Text = "Clientes Vigentes al Día";
                     btnSidebar2.ImageUrl = "~/img/Vigente.png";
                     sideBar3.Text = "Clientes en Mora ";
                     btnSidebar3.ImageUrl = "~/img/enmora2.png";
-                    sideBar4.Text = "Clientes Cancelados";
+                    sideBar4.Text = "Clientes al Día";
                     btnSidebar4.ImageUrl = "~/img/cancelados.png";
                     sideBar5.Text = "Historial Pagos Fuera de Tiempo ";
                     btnSidebar5.ImageUrl = "~/img/fueradeTiempo.png";
@@ -260,7 +262,7 @@ namespace CapasCxC.Interfaces.Reportes
                     btnSidebar1.ImageUrl = "~/img/pagos.png";
                     sideBar2.Text = "Pagos al Credito";
                     btnSidebar2.ImageUrl = "~/img/moroso.png";
-                    sideBar3.Text = "Todos los pagos ";
+                    sideBar3.Text = "Listado de pagos ";
                     btnSidebar3.ImageUrl = "~/img/sindeuda.png";
 
                     sideBar1.Visible = true;
@@ -490,6 +492,7 @@ namespace CapasCxC.Interfaces.Reportes
         {
             ddTipoTransact.Visible = false;
             btnBuscar.Visible = true;
+            LblBuscar.Visible = true;
             ddOpciones.Visible = true;
             if (lleno == false)
             {

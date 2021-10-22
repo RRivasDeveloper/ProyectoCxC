@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../css/misEstilos.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="../../img/LogoIcon.ico" type="image/x-icon" />
     <title></title>
 </head>
 <body class="text-center" style="background-color: #212529">
@@ -21,7 +23,7 @@
 
                     <img class="mb-4" src="../../img/Login.png"  width="" height="150px">
                     <h1 class="h3 mb-3 fw-normal" style="color:white">Ingreso a CxC</h1>
-
+                    <asp:Label ID="Mensaje" runat="server" CssClass="px-2 text-white" Visible="false" Text="Usuario o Contraseña incorrecta"></asp:Label>
                     <div class="form-floating">
                         <asp:TextBox ID="txtUsuario" CssClass="form-control"    placeholder=" Ingrese su Usuario"   runat="server"></asp:TextBox>
                         <asp:Label ID="LbUsuario" AssociatedControlID="txtUsuario"  Text="Ingrese su Usuario" runat="server" ></asp:Label>
@@ -35,7 +37,7 @@
 
                    
                     <br />
-                    <asp:Button ID="Button1" CssClass="w-75 btn btn-lg btn-secondary"  runat="server" Text="Button" />
+                    <asp:Button ID="BtnIngreso" CssClass="w-75 btn btn-lg btn-secondary"  runat="server" Text="Ingresar" OnClick="BtnIngreso_Click"/>
                     <p class="mt-5 mb-3 text-muted">Analisis de Sistemas 2 - © 2021</p>
 
                 </main>

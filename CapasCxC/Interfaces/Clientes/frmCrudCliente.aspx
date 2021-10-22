@@ -73,7 +73,7 @@
                     <table style="margin: 0 auto; top: 0 auto">
                         <tr>
                             <td>
-                                <asp:TextBox ID="txtBuscarCliente" runat="server" Style="visibility: hidden; margin-left: 267px" BackColor="#FFF7E7" Placeholder="Buscar por Dpi/nit"  onkeypress="if (event.keyCode==13) return false;"></asp:TextBox>
+                                <asp:TextBox ID="txtBuscarCliente" runat="server" Style="visibility:  margin-left: 267px" BackColor="#FFF7E7" Placeholder="Buscar por Dpi/nit"  onkeypress="if (event.keyCode==13) return false;"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:ImageButton
