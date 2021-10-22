@@ -36,7 +36,16 @@
                         <asp:ImageButton runat="server" ID="btnClientes" ImageUrl="~/img/clients.jpg" AlternateText="Clientes" OnClick="btnClientes_Click" class="iconos" /></li>
 
                     <li><a href="#" class="nav-link px-2 text-white">Clientes</a></li>
+                    <li>
+                        <asp:ImageButton runat="server" ID="btnPagos" ImageUrl="~/img/pagos.png" AlternateText="Clientes" OnClick="btnPagos_Click" class="iconos" /></li>
 
+                    <li><a href="#" class="nav-link px-2 text-white">Pagos</a></li>
+                    <li>
+                        <asp:ImageButton runat="server" ID="btnOtrasTransacciones" ImageUrl="~/img/OtrasTransacciones.png" AlternateText="Clientes" OnClick="btnOtrasTransacciones_Click" class="iconos" /></li>
+
+                    <li><a href="#" class="nav-link px-2 text-white">Otras Transacciones
+
+                    </a></li>
                 </ul>
 
 
@@ -64,22 +73,29 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li>
-                           
-                            <asp:HyperLink ID="sideBar1" runat="server" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
-                            <asp:ImageButton runat="server" ID="btnSidebar1"  AlternateText="Reporte1" OnClick="btnSidebar1_Click" CssClass="iconos fondoicono" />
+
+                            <asp:HyperLink ID="sideBar1" runat="server" Visible="false" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
+                            <asp:ImageButton runat="server" ID="btnSidebar1" Visible="false" AlternateText="Reporte1" OnClick="btnSidebar1_Click" CssClass="iconos fondoicono" />
 
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">Creditos Pendientes de Pago</a>
-                            <asp:ImageButton runat="server" ID="btnSidebar2"  AlternateText="Reporte2" OnClick="btnSidebar2_Click" CssClass="iconos fondoicono" />
+                            <asp:HyperLink ID="sideBar2" runat="server" Visible="false" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
+                            <asp:ImageButton runat="server" ID="btnSidebar2" Visible="false" AlternateText="Reporte2" OnClick="btnSidebar2_Click" CssClass="iconos fondoicono" />
 
                         </li>
-                        <li><a class="dropdown-item" href="#">Repo 3</a>
-                            <asp:ImageButton runat="server" ID="btnSidebar3" AlternateText="Reporte3" OnClick="btnSidebar3_Click" CssClass="iconos fondoicono" />
+                        <li>
+                            <asp:HyperLink ID="sideBar3" runat="server" Visible="false" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
+                            <asp:ImageButton runat="server" ID="btnSidebar3" Visible="false" AlternateText="Reporte3" OnClick="btnSidebar3_Click" CssClass="iconos fondoicono" />
 
                         </li>
-                        <li><a class="dropdown-item" href="#">Repo 4</a>
-                            <asp:ImageButton runat="server" ID="btnSidebar4"  AlternateText="Reporte4" OnClick="btnSidebar4_Click" CssClass="iconos fondoicono" />
+                        <li>
+                            <asp:HyperLink ID="sideBar4" runat="server" Visible="false" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
+                            <asp:ImageButton runat="server" ID="btnSidebar4" Visible="false" AlternateText="Reporte4" OnClick="btnSidebar4_Click" CssClass="iconos fondoicono" />
+
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="sideBar5" runat="server" Visible="false" CssClass="dropdown-item" href="#">HyperLink</asp:HyperLink>
+                            <asp:ImageButton runat="server" ID="btnSidebar5" Visible="false" AlternateText="Reporte5" OnClick="btnSidebar5_Click" CssClass="iconos fondoicono" />
 
                         </li>
                         <li>
@@ -132,7 +148,7 @@
                         </td>
 
 
-                        <td>
+                        <td style="text-align:center">
                             <asp:ImageButton
                                 Visible="false"
                                 ID="btnBuscar"
@@ -141,7 +157,11 @@
                                 ImageUrl="~/img/buscar.png"
                                 CommandName="Select"
                                 ToolTip="Buscar Rango"
-                                Style="display: block;" OnClick="btnBuscar_Click"></asp:ImageButton></td>
+                                Style="display: block;" OnClick="btnBuscar_Click"></asp:ImageButton>
+                            <asp:Label ID="LblBuscar"  Visible="false" CssClass="px-2 text-white" runat ="server" Text="Buscar"></asp:Label>
+                        </td>
+                        
+                       
 
                     </tr>
                     <tr>
@@ -151,28 +171,37 @@
                             <asp:TextBox Visible="false" ID="TxtFechaFinal" runat="server" BackColor="#FFF7E7" Placeholder="Fecha Final" onkeypress="if (event.keyCode==13) return false;"></asp:TextBox></td>
 
                     </tr>
+                    <tr>
+                        <td>
+                            <asp:DropDownList ID="ddOpciones" AutoPostBack="true" OnSelectedIndexChanged="ddOpciones_SelectedIndexChanged" Visible="false" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddTipoTransact" AutoPostBack="true" OnSelectedIndexChanged="ddTipoTransact_SelectedIndexChanged" Visible="false" runat="server"></asp:DropDownList>
+                            </td>
+                        
+                    </tr>
                 </table>
                 <div>
                     <br />
                     <br />
-                    <br />
-                    <center></center>
-                    <asp:GridView ID="gvClientes" runat="server"
-                        AllowPaging="True" OnPageIndexChanging="cambiodDePagina"
-                        OnSorting="OrdenarPagina"
-                        BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
-                        CellPadding="3" CellSpacing="2" AllowSorting="True" PageSize="8" Width="60%">
-                        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                        <HeaderStyle BackColor="#c9640a" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                        <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                        <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                        <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                        <SortedDescendingHeaderStyle BackColor="#93451F" />
-                    </asp:GridView>
+                    <asp:Label ID="gvTitulo" Font-Size="X-Large" ForeColor="White" runat="server" Text=""></asp:Label>
 
+                    <br />
+                    <div style="overflow-x: auto; width: auto; margin-right: 50px;">
+                        <asp:GridView ID="gvClientes" CssClass="transparente" runat="server"
+                            AllowPaging="True" OnPageIndexChanging="cambiodDePagina"
+                            OnSorting="OrdenarPagina"
+                            BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
+                            CellPadding="3" CellSpacing="2" AllowSorting="True" PageSize="8" Width="60%">
+                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                            <HeaderStyle BackColor="#c9640a" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                        </asp:GridView>
+                    </div>
                 </div>
 
             </div>

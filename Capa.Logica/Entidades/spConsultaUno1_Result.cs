@@ -13,17 +13,13 @@ namespace Capa.Logica.Entidades
     
     public partial class spConsultaUno1_Result
     {
-        public string Region { get; set; }
-        public string Departamento { get; set; }
-        public string Municipio { get; set; }
-        public string Identificacion { get; set; }
-        public string TipoPago { get; set; }
-        public Nullable<System.DateTime> FechaFactura { get; set; }
-        public string NombreCliente { get; set; }
-        public decimal MontoFacturado { get; set; }
-        public decimal MontoPagado { get; set; }
-        public Nullable<System.DateTime> FechaPagado { get; set; }
-        public string TipoTransaccion { get; set; }
-        public int TTR_TipoTRansaccion { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
+        public string ID { get; set; }
+        public string TELEFONO { get; set; }
+        public string DEPARTAMENTO { get; set; }
+        public string DIRECCION { get; set; }
+        public string NIT { get; set; }
+
     }
 }

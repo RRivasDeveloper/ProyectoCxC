@@ -57,12 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\CrudClientes.cs" />
-    <Compile Include="Clases\CrudCredito.cs" />
-    <Compile Include="Clases\CrudDiasCredito.cs" />
-    <Compile Include="Clases\CrudFactura.cs" />
-    <Compile Include="Clases\CrudFacturaDet.cs" />
-    <Compile Include="Clases\CrudProducto.cs" />
-    <Compile Include="Clases\CrudTipoPago.cs" />
+    <Compile Include="Clases\ValidaLogin.cs" />
+
     <Compile Include="Entidades\CXC_CLIENTE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -138,6 +134,16 @@
     <Compile Include="Entidades\SEG_USUARIO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\spConsultaUno11_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\spConsultaUno12_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\spConsultaUno13_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+
     <Compile Include="Entidades\spConsultaUno1_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -189,6 +195,13 @@
     <Compile Include="Entidades\SP_RPT_Historico_de_Pagos_CR_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\SP_RPT_OtroPago_x_RangoFecha2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\SP_RPT_Pagos_x_RangoFecha3_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+
     <Compile Include="Entidades\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

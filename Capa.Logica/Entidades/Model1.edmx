@@ -881,7 +881,8 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Name="PUE_Puesto" Type="Int32" />
           <NavigationProperty Name="CXC_CLIENTE" Relationship="Self.Fk_Empleado" FromRole="RRH_EMPLEADO" ToRole="CXC_CLIENTE" />
           <NavigationProperty Name="RRH_PUESTO" Relationship="Self.Fk_Puesto" FromRole="RRH_EMPLEADO" ToRole="RRH_PUESTO" />
-          <NavigationProperty Name="SEG_USUARIO1" Relationship="CxCDB.Fk_RRHEmpleado1" FromRole="RRH_EMPLEADO" ToRole="SEG_USUARIO1" />
+          <NavigationProperty Name="SEG_USUARIO" Relationship="CxCDB.Fk_RRHEmpleado" FromRole="RRH_EMPLEADO" ToRole="SEG_USUARIO" />
+
         </EntityType>
         <EntityType Name="RRH_PUESTO">
           <Key>
@@ -897,7 +898,8 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           </Key>
           <Property Name="ROL_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ROL_Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SEG_USUARIO1" Relationship="CxCDB.Fk_Rol1" FromRole="SEG_ROL" ToRole="SEG_USUARIO1" />
+          <NavigationProperty Name="SEG_USUARIO" Relationship="CxCDB.Fk_Rol" FromRole="SEG_ROL" ToRole="SEG_USUARIO" />
+
         </EntityType>
         <Association Name="Fk_Cliente">
           <End Role="CXC_CLIENTE" Type="Self.CXC_CLIENTE" Multiplicity="0..1" />
@@ -1229,22 +1231,75 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="sysdiagrams" EntityType="CxCDB.sysdiagrams" />
-          <EntitySet Name="database_firewall_rules" EntityType="CxCDB.database_firewall_rules" />
-          <FunctionImport Name="Sp_Login" ReturnType="Collection(CxCDB.Sp_Login_Result)">
-            <Parameter Name="vUsuario" Mode="In" Type="String" />
-            <Parameter Name="vPassw" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="SP_RPT_Historico_de_Pagos_CR" ReturnType="Collection(CxCDB.SP_RPT_Historico_de_Pagos_CR_Result)">
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipoPago" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha">
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
             <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha">
+          <EntitySet Name="sysdiagrams" EntityType="CxCDB.sysdiagrams" />
+          <EntitySet Name="database_firewall_rules" EntityType="CxCDB.database_firewall_rules" />
+          <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha1">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha1">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipoPago" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_MasPago">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spOtroPago_x_RangoFecha">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaUno1" ReturnType="Collection(CxCDB.spConsultaUno1_Result)">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_OtroPago">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaUno11" ReturnType="Collection(CxCDB.spConsultaUno11_Result)">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_OtroPago_x_RangoFecha2" ReturnType="Collection(CxCDB.SP_RPT_OtroPago_x_RangoFecha2_Result)">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha2">
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipoPago" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaUno12" ReturnType="Collection(CxCDB.spConsultaUno12_Result)">
+
+            <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_RPT_Pagos_x_RangoFecha3" ReturnType="Collection(CxCDB.SP_RPT_Pagos_x_RangoFecha3_Result)">
+
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
             <Parameter Name="vTipoPago" Mode="In" Type="String" />
@@ -1257,28 +1312,20 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
             <Parameter Name="vIdentificacion" Mode="In" Type="String" />
             <Parameter Name="vNumero" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_LOGIN1" ReturnType="Collection(CxCDB.SP_LOGIN1_Result)">
-            <Parameter Name="vUsuario" Mode="In" Type="String" />
-            <Parameter Name="vPassw" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="spConsultaUno1" ReturnType="Collection(CxCDB.spConsultaUno1_Result)">
+          <FunctionImport Name="SP_RPT_CREDITOS_CANCELADOS" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result)">
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
-            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="SEG_USUARIOSet" EntityType="CxCDB.SEG_USUARIO" />
-          <AssociationSet Name="Fk_RRHEmpleado1" Association="CxCDB.Fk_RRHEmpleado1">
+          <EntitySet Name="SEG_USUARIO" EntityType="CxCDB.SEG_USUARIO" />
+          <AssociationSet Name="Fk_RRHEmpleado" Association="CxCDB.Fk_RRHEmpleado">
             <End Role="RRH_EMPLEADO" EntitySet="RRH_EMPLEADO" />
-            <End Role="SEG_USUARIO1" EntitySet="SEG_USUARIOSet" />
+            <End Role="SEG_USUARIO" EntitySet="SEG_USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="Fk_Rol1" Association="CxCDB.Fk_Rol1">
+          <AssociationSet Name="Fk_Rol" Association="CxCDB.Fk_Rol">
             <End Role="SEG_ROL" EntitySet="SEG_ROL" />
-            <End Role="SEG_USUARIO1" EntitySet="SEG_USUARIOSet" />
+            <End Role="SEG_USUARIO" EntitySet="SEG_USUARIO" />
           </AssociationSet>
-          <FunctionImport Name="SP_Acceso" ReturnType="Collection(String)">
-            <Parameter Name="vUsuario" Mode="In" Type="String" />
-            <Parameter Name="vPassw" Mode="In" Type="String" />
-          </FunctionImport>
+
           <FunctionImport Name="SP_CNS_PAGO" ReturnType="Collection(CxCDB.SP_CNS_PAGO_Result)">
           <Parameter Name="vDocumento" Mode="In" Type="String" />
           </FunctionImport>
@@ -1302,9 +1349,18 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
             <Parameter Name="vMetodoPago" Mode="In" Type="Int32" />
             <Parameter Name="vPlazo" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_RPT_CREDITOS_CANCELADOS" ReturnType="Collection(CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result)">
+          <FunctionImport Name="SP_VALIDA_EXISTENCIA_CLIENTE" ReturnType="Collection(Int32)">
+          <Parameter Name="vDocumento" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spConsultaUno13" ReturnType="Collection(CxCDB.spConsultaUno13_Result)">
             <Parameter Name="FechaInicial" Mode="In" Type="DateTime" />
             <Parameter Name="FechaFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="vTipTransaccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LOGIN" ReturnType="Collection(String)">
+            <Parameter Name="vUsuario" Mode="In" Type="String" />
+            <Parameter Name="vPassw" Mode="In" Type="String" />
+
           </FunctionImport>
           <FunctionImport Name="SP_UPD_CLIENTES">
             <Parameter Name="vPrimerNombre" Mode="In" Type="String" />
@@ -1320,9 +1376,7 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
             <Parameter Name="vNIT" Mode="In" Type="String" />
             <Parameter Name="vRegion" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_VALIDA_EXISTENCIA_CLIENTE" ReturnType="Collection(Int32)">
-          <Parameter Name="vDocumento" Mode="In" Type="String" />
-          </FunctionImport>
+
         </EntityContainer>
         <ComplexType Name="SP_RPT_CLIENTES_X_REGION_Result">
           <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
@@ -1419,6 +1473,31 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Type="Int32" Name="EST_Estado" Nullable="false" />
           <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
         </ComplexType>
+        <ComplexType Name="SP_RPT_Historico_de_Pagos_CR_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="DateTime" Name="PRP_FechaProyeccion" Nullable="true" />
+          <Property Type="DateTime" Name="REC_FechaRecuperacion" Nullable="true" />
+          <Property Type="Int32" Name="DiasPosteriores" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_Login_Result">
+          <Property Type="String" Name="USU_UsuarioSistema" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="ROL_Descripcion" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="RRH_NombreEmpleado" Nullable="true" MaxLength="40" />
+          <Property Type="Binary" Name="USU_Passw" Nullable="true" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+        </ComplexType>
+
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -1445,29 +1524,76 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <ComplexType Name="Sp_Login_Result">
+        <ComplexType Name="spConsultaUno1_Result">
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="ID" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TELEFONO" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NIT" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SP_LOGIN1_Result">
+
           <Property Type="String" Name="USU_UsuarioSistema" Nullable="true" MaxLength="40" />
           <Property Type="String" Name="ROL_Descripcion" Nullable="true" MaxLength="60" />
           <Property Type="String" Name="RRH_NombreEmpleado" Nullable="true" MaxLength="40" />
           <Property Type="Binary" Name="USU_Passw" Nullable="true" />
           <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
         </ComplexType>
-        <ComplexType Name="SP_RPT_Historico_de_Pagos_CR_Result">
+        <ComplexType Name="spConsultaUno11_Result">
           <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
-          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
           <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
-          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
-          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
-          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
-          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
-          <Property Type="DateTime" Name="PRP_FechaProyeccion" Nullable="true" />
-          <Property Type="DateTime" Name="REC_FechaRecuperacion" Nullable="true" />
-          <Property Type="Int32" Name="DiasPosteriores" Nullable="true" />
+          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+          <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_RPT_OtroPago_x_RangoFecha2_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+          <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spConsultaUno12_Result">
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+          <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_RPT_Pagos_x_RangoFecha3_Result">
+
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="7" />
+          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+          <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
+          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+
         </ComplexType>
         <ComplexType Name="SP_CNS_DETALLE_FACTURA_Result">
           <Property Type="String" Name="Serie" Nullable="true" MaxLength="40" />
@@ -1492,26 +1618,23 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Type="DateTime" Name="FAC_Fecha" Nullable="true" />
           <Property Type="Decimal" Name="FAC_TOTAL" Nullable="true" Precision="10" Scale="2" />
         </ComplexType>
-        <ComplexType Name="SP_LOGIN1_Result">
-          <Property Type="String" Name="USU_UsuarioSistema" Nullable="true" MaxLength="40" />
-          <Property Type="String" Name="ROL_Descripcion" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="RRH_NombreEmpleado" Nullable="true" MaxLength="40" />
-          <Property Type="Binary" Name="USU_Passw" Nullable="true" />
-          <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="spConsultaUno1_Result">
+
+        <ComplexType Name="SP_RPT_CREDITOS_CANCELADOS_Result">
+
           <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
-          <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="2" />
-          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
+          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
           <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
-          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
-          <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
-          <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
+          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
+          <Property Type="String" Name="DCR_Descripcion" Nullable="true" MaxLength="80" />
+
         </ComplexType>
         <EntityType Name="SEG_USUARIO">
           <Key>
@@ -1523,29 +1646,33 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Name="ROL_Rol" Type="Int32" />
           <Property Name="RRH_Empleado" Type="Int32" />
           <Property Name="USU_Passw" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="RRH_EMPLEADO1" Relationship="CxCDB.Fk_RRHEmpleado1" FromRole="SEG_USUARIO1" ToRole="RRH_EMPLEADO" />
-          <NavigationProperty Name="SEG_ROL" Relationship="CxCDB.Fk_Rol1" FromRole="SEG_USUARIO1" ToRole="SEG_ROL" />
+          <NavigationProperty Name="RRH_EMPLEADO1" Relationship="CxCDB.Fk_RRHEmpleado" FromRole="SEG_USUARIO" ToRole="RRH_EMPLEADO" />
+          <NavigationProperty Name="SEG_ROL" Relationship="CxCDB.Fk_Rol" FromRole="SEG_USUARIO" ToRole="SEG_ROL" />
         </EntityType>
-        <Association Name="Fk_RRHEmpleado1">
+        <Association Name="Fk_RRHEmpleado">
           <End Type="CxCDB.RRH_EMPLEADO" Role="RRH_EMPLEADO" Multiplicity="0..1" />
-          <End Type="CxCDB.SEG_USUARIO" Role="SEG_USUARIO1" Multiplicity="*" />
+          <End Type="CxCDB.SEG_USUARIO" Role="SEG_USUARIO" Multiplicity="*" />
+
           <ReferentialConstraint>
             <Principal Role="RRH_EMPLEADO">
               <PropertyRef Name="RRH_Empleado1" />
             </Principal>
-            <Dependent Role="SEG_USUARIO1">
+            <Dependent Role="SEG_USUARIO">
+
               <PropertyRef Name="RRH_Empleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Fk_Rol1">
+        <Association Name="Fk_Rol">
           <End Type="CxCDB.SEG_ROL" Role="SEG_ROL" Multiplicity="0..1" />
-          <End Type="CxCDB.SEG_USUARIO" Role="SEG_USUARIO1" Multiplicity="*" />
+          <End Type="CxCDB.SEG_USUARIO" Role="SEG_USUARIO" Multiplicity="*" />
+
           <ReferentialConstraint>
             <Principal Role="SEG_ROL">
               <PropertyRef Name="ROL_Rol" />
             </Principal>
-            <Dependent Role="SEG_USUARIO1">
+            <Dependent Role="SEG_USUARIO">
+
               <PropertyRef Name="ROL_Rol" />
             </Dependent>
           </ReferentialConstraint>
@@ -1560,20 +1687,21 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
           <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
           <Property Type="Int32" Name="EST_Estado" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="SP_RPT_CREDITOS_CANCELADOS_Result">
+        <ComplexType Name="spConsultaUno13_Result">
+
           <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Departamento" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="Municipio" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="40" />
-          <Property Type="DateTime" Name="FechaCredito" Nullable="true" />
+          <Property Type="String" Name="TipoPago" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="FechaFactura" Nullable="true" />
           <Property Type="String" Name="NombreCliente" Nullable="true" MaxLength="163" />
-          <Property Type="Decimal" Name="MontoCredito" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="Montopagado" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="Saldo" Nullable="true" Precision="11" Scale="2" />
-          <Property Type="String" Name="EST_Descripcion" Nullable="true" MaxLength="80" />
-          <Property Type="Int32" Name="EST_Estado" Nullable="false" />
-          <Property Type="Decimal" Name="MontoMora" Nullable="true" Precision="11" Scale="2" />
-          <Property Type="String" Name="DCR_Descripcion" Nullable="true" MaxLength="80" />
+          <Property Type="Decimal" Name="MontoFacturado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="MontoPagado" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="DateTime" Name="FechaPagado" Nullable="true" />
+          <Property Type="String" Name="TipoTransaccion" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="TTR_TipoTRansaccion" Nullable="false" />
+
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1916,6 +2044,28 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_RPT_Historico_de_Pagos_CR" FunctionName="CxCDB.Store.SP_RPT_Historico_de_Pagos_CR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Historico_de_Pagos_CR_Result">
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
+                <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+                <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
+                <ScalarProperty Name="PRP_FechaProyeccion" ColumnName="PRP_FechaProyeccion" />
+                <ScalarProperty Name="REC_FechaRecuperacion" ColumnName="REC_FechaRecuperacion" />
+                <ScalarProperty Name="DiasPosteriores" ColumnName="DiasPosteriores" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="CxCDB.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1939,29 +2089,41 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_RPT_Historico_de_Pagos_CR" FunctionName="CxCDB.Store.SP_RPT_Historico_de_Pagos_CR">
+          <FunctionImportMapping FunctionImportName="SP_RPT_OtroPago_x_RangoFecha2" FunctionName="CxCDB.Store.SP_RPT_OtroPago_x_RangoFecha">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Historico_de_Pagos_CR_Result">
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_OtroPago_x_RangoFecha2_Result">
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Municipio" ColumnName="Municipio" />
                 <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
-                <ScalarProperty Name="FechaCredito" ColumnName="FechaCredito" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
                 <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-                <ScalarProperty Name="MontoCredito" ColumnName="MontoCredito" />
-                <ScalarProperty Name="Montopagado" ColumnName="Montopagado" />
-                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
-                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
-                <ScalarProperty Name="MontoMora" ColumnName="MontoMora" />
-                <ScalarProperty Name="PRP_FechaProyeccion" ColumnName="PRP_FechaProyeccion" />
-                <ScalarProperty Name="REC_FechaRecuperacion" ColumnName="REC_FechaRecuperacion" />
-                <ScalarProperty Name="DiasPosteriores" ColumnName="DiasPosteriores" />
+                <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
+                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+                <ScalarProperty Name="FechaPagado" ColumnName="FechaPagado" />
+                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
+                <ScalarProperty Name="TTR_TipoTRansaccion" ColumnName="TTR_TipoTRansaccion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_RPT_OtroPago_x_RangoFecha" FunctionName="CxCDB.Store.SP_RPT_OtroPago_x_RangoFecha" />
-          <FunctionImportMapping FunctionImportName="SP_RPT_Pagos_x_RangoFecha" FunctionName="CxCDB.Store.SP_RPT_Pagos_x_RangoFecha" />
+          <FunctionImportMapping FunctionImportName="SP_RPT_Pagos_x_RangoFecha3" FunctionName="CxCDB.Store.SP_RPT_Pagos_x_RangoFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_RPT_Pagos_x_RangoFecha3_Result">
+
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
+                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+                <ScalarProperty Name="FechaPagado" ColumnName="FechaPagado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+
           <FunctionImportMapping FunctionImportName="SP_CNS_DETALLE_FACTURA" FunctionName="CxCDB.Store.SP_CNS_DETALLE_FACTURA">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CxCDB.SP_CNS_DETALLE_FACTURA_Result">
@@ -1993,67 +2155,10 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LOGIN1" FunctionName="CxCDB.Store.SP_LOGIN">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CxCDB.SP_LOGIN1_Result">
-                <ScalarProperty Name="USU_UsuarioSistema" ColumnName="USU_UsuarioSistema" />
-                <ScalarProperty Name="ROL_Descripcion" ColumnName="ROL_Descripcion" />
-                <ScalarProperty Name="RRH_NombreEmpleado" ColumnName="RRH_NombreEmpleado" />
-                <ScalarProperty Name="USU_Passw" ColumnName="USU_Passw" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="spConsultaUno1" FunctionName="CxCDB.Store.spConsultaUno1">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CxCDB.spConsultaUno1_Result">
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
-                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
-                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
-                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
-                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
-                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-                <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
-                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
-                <ScalarProperty Name="FechaPagado" ColumnName="FechaPagado" />
-                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
-                <ScalarProperty Name="TTR_TipoTRansaccion" ColumnName="TTR_TipoTRansaccion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="SEG_USUARIOSet">
-            <EntityTypeMapping TypeName="CxCDB.SEG_USUARIO">
-              <MappingFragment StoreEntitySet="SEG_USUARIO">
-                <ScalarProperty Name="USU_Passw" ColumnName="USU_Passw" />
-                <ScalarProperty Name="RRH_Empleado" ColumnName="RRH_Empleado" />
-                <ScalarProperty Name="ROL_Rol" ColumnName="ROL_Rol" />
-                <ScalarProperty Name="USU_Estado" ColumnName="USU_Estado" />
-                <ScalarProperty Name="USU_UsuarioSistema" ColumnName="USU_UsuarioSistema" />
-                <ScalarProperty Name="USU_Usuario" ColumnName="USU_Usuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_Acceso" FunctionName="CxCDB.Store.SP_Acceso" />
-          <FunctionImportMapping FunctionImportName="SP_CNS_PAGO" FunctionName="CxCDB.Store.SP_CNS_PAGO">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CxCDB.SP_CNS_PAGO_Result">
-                <ScalarProperty Name="PRP_ProyeccionPago" ColumnName="PRP_ProyeccionPago" />
-                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
-                <ScalarProperty Name="NIT" ColumnName="NIT" />
-                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
-                <ScalarProperty Name="FechaProyectada" ColumnName="FechaProyectada" />
-                <ScalarProperty Name="PRP_MontoCuota" ColumnName="PRP_MontoCuota" />
-                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
-                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_INS_CLIENTES" FunctionName="CxCDB.Store.SP_INS_CLIENTES" />
-          <FunctionImportMapping FunctionImportName="SP_INS_FACTURA" FunctionName="CxCDB.Store.SP_INS_FACTURA" />
           <FunctionImportMapping FunctionImportName="SP_RPT_CREDITOS_CANCELADOS" FunctionName="CxCDB.Store.SP_RPT_CREDITOS_CANCELADOS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CxCDB.SP_RPT_CREDITOS_CANCELADOS_Result">
+
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Departamento" ColumnName="Departamento" />
                 <ScalarProperty Name="Municipio" ColumnName="Municipio" />
@@ -2070,8 +2175,59 @@ advertencia 6002: La tabla o vista 'CxC.sys.database_firewall_rules' no tiene de
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_UPD_CLIENTES" FunctionName="CxCDB.Store.SP_UPD_CLIENTES" />
+          <EntitySetMapping Name="SEG_USUARIO">
+
+            <EntityTypeMapping TypeName="CxCDB.SEG_USUARIO">
+              <MappingFragment StoreEntitySet="SEG_USUARIO">
+                <ScalarProperty Name="USU_Passw" ColumnName="USU_Passw" />
+                <ScalarProperty Name="RRH_Empleado" ColumnName="RRH_Empleado" />
+                <ScalarProperty Name="ROL_Rol" ColumnName="ROL_Rol" />
+                <ScalarProperty Name="USU_Estado" ColumnName="USU_Estado" />
+                <ScalarProperty Name="USU_UsuarioSistema" ColumnName="USU_UsuarioSistema" />
+                <ScalarProperty Name="USU_Usuario" ColumnName="USU_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+
+          <FunctionImportMapping FunctionImportName="SP_CNS_PAGO" FunctionName="CxCDB.Store.SP_CNS_PAGO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.SP_CNS_PAGO_Result">
+                <ScalarProperty Name="PRP_ProyeccionPago" ColumnName="PRP_ProyeccionPago" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="FechaProyectada" ColumnName="FechaProyectada" />
+                <ScalarProperty Name="PRP_MontoCuota" ColumnName="PRP_MontoCuota" />
+                <ScalarProperty Name="EST_Descripcion" ColumnName="EST_Descripcion" />
+                <ScalarProperty Name="EST_Estado" ColumnName="EST_Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_INS_CLIENTES" FunctionName="CxCDB.Store.SP_INS_CLIENTES" />
+          <FunctionImportMapping FunctionImportName="SP_INS_FACTURA" FunctionName="CxCDB.Store.SP_INS_FACTURA" />
           <FunctionImportMapping FunctionImportName="SP_VALIDA_EXISTENCIA_CLIENTE" FunctionName="CxCDB.Store.SP_VALIDA_EXISTENCIA_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="spConsultaUno13" FunctionName="CxCDB.Store.spConsultaUno1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CxCDB.spConsultaUno13_Result">
+
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+                <ScalarProperty Name="MontoFacturado" ColumnName="MontoFacturado" />
+                <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+                <ScalarProperty Name="FechaPagado" ColumnName="FechaPagado" />
+                <ScalarProperty Name="TipoTransaccion" ColumnName="TipoTransaccion" />
+                <ScalarProperty Name="TTR_TipoTRansaccion" ColumnName="TTR_TipoTRansaccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="CxCDB.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="SP_UPD_CLIENTES" FunctionName="CxCDB.Store.SP_UPD_CLIENTES" />
+
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

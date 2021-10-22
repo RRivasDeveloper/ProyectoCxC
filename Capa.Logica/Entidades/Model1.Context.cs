@@ -47,7 +47,8 @@ namespace Capa.Logica.Entidades
         public virtual DbSet<SEG_ROL> SEG_ROL { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
-        public virtual DbSet<SEG_USUARIO> SEG_USUARIOSet { get; set; }
+        public virtual DbSet<SEG_USUARIO> SEG_USUARIO { get; set; }
+
     
         public virtual ObjectResult<SP_RPT_CLIENTES_X_REGION_Result> SP_RPT_CLIENTES_X_REGION(string vTipPago)
         {
@@ -235,19 +236,6 @@ namespace Capa.Logica.Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_X_PAGAR_Result>("SP_RPT_CREDITOS_X_PAGAR", fechaInicialParameter, fechaFinalParameter);
         }
     
-        public virtual ObjectResult<Sp_Login_Result> Sp_Login(string vUsuario, string vPassw)
-        {
-            var vUsuarioParameter = vUsuario != null ?
-                new ObjectParameter("vUsuario", vUsuario) :
-                new ObjectParameter("vUsuario", typeof(string));
-    
-            var vPasswParameter = vPassw != null ?
-                new ObjectParameter("vPassw", vPassw) :
-                new ObjectParameter("vPassw", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sp_Login_Result>("Sp_Login", vUsuarioParameter, vPasswParameter);
-        }
-    
         public virtual ObjectResult<SP_RPT_Historico_de_Pagos_CR_Result> SP_RPT_Historico_de_Pagos_CR(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
@@ -259,6 +247,24 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("FechaFinal", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_Historico_de_Pagos_CR_Result>("SP_RPT_Historico_de_Pagos_CR", fechaInicialParameter, fechaFinalParameter);
+        }
+    
+        public virtual int SP_RPT_Pagos_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipoPagoParameter = vTipoPago != null ?
+                new ObjectParameter("vTipoPago", vTipoPago) :
+                new ObjectParameter("vTipoPago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
         }
     
         public virtual int SP_RPT_OtroPago_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
@@ -278,7 +284,24 @@ namespace Capa.Logica.Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_OtroPago_x_RangoFecha", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
         }
     
-        public virtual int SP_RPT_Pagos_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+        public virtual int SP_RPT_OtroPago_x_RangoFecha1(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_OtroPago_x_RangoFecha1", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual int SP_RPT_Pagos_x_RangoFecha1(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -292,7 +315,162 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("vTipoPago", vTipoPago) :
                 new ObjectParameter("vTipoPago", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha1", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
+        }
+    
+        public virtual int SP_RPT_MasPago(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_MasPago", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual int spOtroPago_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spOtroPago_x_RangoFecha", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<spConsultaUno1_Result> spConsultaUno1(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno1_Result>("spConsultaUno1", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual int sp_OtroPago(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_OtroPago", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<spConsultaUno11_Result> spConsultaUno11(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno11_Result>("spConsultaUno11", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<SP_RPT_OtroPago_x_RangoFecha2_Result> SP_RPT_OtroPago_x_RangoFecha2(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_OtroPago_x_RangoFecha2_Result>("SP_RPT_OtroPago_x_RangoFecha2", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual int SP_RPT_Pagos_x_RangoFecha2(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipoPagoParameter = vTipoPago != null ?
+                new ObjectParameter("vTipoPago", vTipoPago) :
+                new ObjectParameter("vTipoPago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_RPT_Pagos_x_RangoFecha2", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
+        }
+    
+        public virtual ObjectResult<spConsultaUno12_Result> spConsultaUno12(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno12_Result>("spConsultaUno12", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<SP_RPT_Pagos_x_RangoFecha3_Result> SP_RPT_Pagos_x_RangoFecha3(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+
+        {
+            var fechaInicialParameter = fechaInicial.HasValue ?
+                new ObjectParameter("FechaInicial", fechaInicial) :
+                new ObjectParameter("FechaInicial", typeof(System.DateTime));
+    
+            var fechaFinalParameter = fechaFinal.HasValue ?
+                new ObjectParameter("FechaFinal", fechaFinal) :
+                new ObjectParameter("FechaFinal", typeof(System.DateTime));
+    
+            var vTipoPagoParameter = vTipoPago != null ?
+                new ObjectParameter("vTipoPago", vTipoPago) :
+                new ObjectParameter("vTipoPago", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_Pagos_x_RangoFecha3_Result>("SP_RPT_Pagos_x_RangoFecha3", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
+=
         }
     
         public virtual ObjectResult<SP_CNS_DETALLE_FACTURA_Result> SP_CNS_DETALLE_FACTURA(string vIdentificacion, string vNumero)
@@ -321,20 +499,8 @@ namespace Capa.Logica.Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_CNS_FACTURA_Result>("SP_CNS_FACTURA", vIdentificacionParameter, vNumeroParameter);
         }
     
-        public virtual ObjectResult<SP_LOGIN1_Result> SP_LOGIN1(string vUsuario, string vPassw)
-        {
-            var vUsuarioParameter = vUsuario != null ?
-                new ObjectParameter("vUsuario", vUsuario) :
-                new ObjectParameter("vUsuario", typeof(string));
-    
-            var vPasswParameter = vPassw != null ?
-                new ObjectParameter("vPassw", vPassw) :
-                new ObjectParameter("vPassw", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LOGIN1_Result>("SP_LOGIN1", vUsuarioParameter, vPasswParameter);
-        }
-    
-        public virtual ObjectResult<spConsultaUno1_Result> spConsultaUno1(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+        public virtual ObjectResult<SP_RPT_CREDITOS_CANCELADOS_Result> SP_RPT_CREDITOS_CANCELADOS(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -344,24 +510,8 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("FechaFinal", fechaFinal) :
                 new ObjectParameter("FechaFinal", typeof(System.DateTime));
     
-            var vTipTransaccionParameter = vTipTransaccion != null ?
-                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
-                new ObjectParameter("vTipTransaccion", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno1_Result>("spConsultaUno1", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
-        }
-    
-        public virtual ObjectResult<string> SP_Acceso(string vUsuario, string vPassw)
-        {
-            var vUsuarioParameter = vUsuario != null ?
-                new ObjectParameter("vUsuario", vUsuario) :
-                new ObjectParameter("vUsuario", typeof(string));
-    
-            var vPasswParameter = vPassw != null ?
-                new ObjectParameter("vPassw", vPassw) :
-                new ObjectParameter("vPassw", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_Acceso", vUsuarioParameter, vPasswParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_CANCELADOS_Result>("SP_RPT_CREDITOS_CANCELADOS", fechaInicialParameter, fechaFinalParameter);
+
         }
     
         public virtual ObjectResult<SP_CNS_PAGO_Result> SP_CNS_PAGO(string vDocumento)
@@ -447,7 +597,17 @@ namespace Capa.Logica.Entidades
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_INS_FACTURA", vIdentificacionParameter, vSerieParameter, vMetodoPagoParameter, vPlazoParameter);
         }
     
-        public virtual ObjectResult<SP_RPT_CREDITOS_CANCELADOS_Result> SP_RPT_CREDITOS_CANCELADOS(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
+        public virtual ObjectResult<Nullable<int>> SP_VALIDA_EXISTENCIA_CLIENTE(string vDocumento)
+        {
+            var vDocumentoParameter = vDocumento != null ?
+                new ObjectParameter("vDocumento", vDocumento) :
+                new ObjectParameter("vDocumento", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_VALIDA_EXISTENCIA_CLIENTE", vDocumentoParameter);
+        }
+    
+        public virtual ObjectResult<spConsultaUno13_Result> spConsultaUno13(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -457,7 +617,25 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("FechaFinal", fechaFinal) :
                 new ObjectParameter("FechaFinal", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_CANCELADOS_Result>("SP_RPT_CREDITOS_CANCELADOS", fechaInicialParameter, fechaFinalParameter);
+            var vTipTransaccionParameter = vTipTransaccion != null ?
+                new ObjectParameter("vTipTransaccion", vTipTransaccion) :
+                new ObjectParameter("vTipTransaccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spConsultaUno13_Result>("spConsultaUno13", fechaInicialParameter, fechaFinalParameter, vTipTransaccionParameter);
+        }
+    
+        public virtual ObjectResult<string> SP_LOGIN(string vUsuario, string vPassw)
+        {
+            var vUsuarioParameter = vUsuario != null ?
+                new ObjectParameter("vUsuario", vUsuario) :
+                new ObjectParameter("vUsuario", typeof(string));
+    
+            var vPasswParameter = vPassw != null ?
+                new ObjectParameter("vPassw", vPassw) :
+                new ObjectParameter("vPassw", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_LOGIN", vUsuarioParameter, vPasswParameter);
+
         }
     
         public virtual int SP_UPD_CLIENTES(string vPrimerNombre, string vSegundoNombre, string vPrimerApellido, string vSegundoApellido, string vIdentificacion, Nullable<System.DateTime> vFechaNacimiento, string vTelefono, string vDepartamento, string vMunicipio, string vDireccion, string vNIT, string vRegion)
@@ -512,14 +690,6 @@ namespace Capa.Logica.Entidades
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPD_CLIENTES", vPrimerNombreParameter, vSegundoNombreParameter, vPrimerApellidoParameter, vSegundoApellidoParameter, vIdentificacionParameter, vFechaNacimientoParameter, vTelefonoParameter, vDepartamentoParameter, vMunicipioParameter, vDireccionParameter, vNITParameter, vRegionParameter);
         }
-    
-        public virtual ObjectResult<Nullable<int>> SP_VALIDA_EXISTENCIA_CLIENTE(string vDocumento)
-        {
-            var vDocumentoParameter = vDocumento != null ?
-                new ObjectParameter("vDocumento", vDocumento) :
-                new ObjectParameter("vDocumento", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_VALIDA_EXISTENCIA_CLIENTE", vDocumentoParameter);
-        }
+
     }
 }

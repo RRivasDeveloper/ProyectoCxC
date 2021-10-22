@@ -213,15 +213,20 @@
     <Content Include="img\borrarClienteAzul.png" />
     <Content Include="img\buscar.png" />
     <Content Include="img\buscarCliente.png" />
-    <Content Include="img\cancel.png" />
+    <Content Include="img\cancelados.png" />
+
     <Content Include="img\clientesContado2.png" />
+    <Content Include="img\Clientesporregion.png" />
     <Content Include="img\clients.jpg" />
     <Content Include="img\Consulta.png" />
     <Content Include="img\credit.png" />
+    <Content Include="img\creditcontado.png" />
     <Content Include="img\editarCliente.png" />
     <Content Include="img\editarCliente1.png" />
     <Content Include="img\enmora.png" />
+    <Content Include="img\enmora2.png" />
     <Content Include="img\factura.png" />
+    <Content Include="img\fueradeTiempo.png" />
     <Content Include="img\gt.png" />
     <Content Include="img\gtDepto - copia.gif" />
     <Content Include="img\guardar.png" />
@@ -229,12 +234,13 @@
     <Content Include="img\ingresarCliente.png" />
     <Content Include="img\ingreso.png" />
     <Content Include="img\inspect.png" />
-    <Content Include="img\limpiar.png" />
+    <Content Include="img\Login.png" />
     <Content Include="img\moroso.png" />
-    <Content Include="img\nuevo.png" />
-    <Content Include="img\okay.png" />
+    <Content Include="img\OtrasTransacciones.png" />
+
     <Content Include="img\pagos.png" />
     <Content Include="img\pendientePago.png" />
+    <Content Include="img\rangoFecha.png" />
     <Content Include="img\Saldo.png" />
     <Content Include="img\Salir.png" />
     <Content Include="img\sindeuda.png" />
@@ -242,9 +248,8 @@
     <Content Include="Interfaces\Clientes\frmBase.aspx" />
     <Content Include="Interfaces\Clientes\frmCrudCliente.aspx" />
     <Content Include="Interfaces\Clientes\frmInicio.aspx" />
-    <Content Include="Interfaces\Factura\frmFacturaNueva.aspx" />
-    <Content Include="Interfaces\Factura\frmFacturaBusqueda.aspx" />
-    <Content Include="Interfaces\Factura\frmFacturaResultado.aspx" />
+    <Content Include="Interfaces\Inicio\Login.aspx" />
+
     <Content Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManCategoria.aspx" />
     <Content Include="Interfaces\Mantenimientos\frmManPlazo.aspx" />
@@ -372,13 +377,13 @@
     <Compile Include="Interfaces\Clientes\frmInicio.aspx.designer.cs">
       <DependentUpon>frmInicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\Factura\Afiliado.cs" />
-    <Compile Include="Interfaces\Factura\frmFacturaNueva.aspx.cs">
-      <DependentUpon>frmFacturaNueva.aspx</DependentUpon>
+    <Compile Include="Interfaces\Inicio\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Interfaces\Factura\frmFacturaNueva.aspx.designer.cs">
-      <DependentUpon>frmFacturaNueva.aspx</DependentUpon>
+    <Compile Include="Interfaces\Inicio\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="Interfaces\Mantenimientos\frmCategoriaDet.aspx.cs">
       <DependentUpon>frmCategoriaDet.aspx</DependentUpon>

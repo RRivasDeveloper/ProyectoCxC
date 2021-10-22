@@ -19,6 +19,12 @@ namespace CapasCxC.Interfaces.Clientes
             }
 
         }
+        private void Ocultar()
+        {
+            txtBuscarCliente.Visible = false;
+            btnBuscar.Visible = false;
+            gvClientes.Visible = false;
+        }
         private void BindGrid()
         {
 
@@ -55,6 +61,7 @@ namespace CapasCxC.Interfaces.Clientes
 
         protected void btnAgregar_Click(object sender, ImageClickEventArgs e)
         {
+            Ocultar();//ocultamos lo que este visible
 
         }
 
