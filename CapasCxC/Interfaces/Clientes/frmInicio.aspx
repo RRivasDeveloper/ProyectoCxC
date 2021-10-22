@@ -44,6 +44,18 @@
 
                         <li>
                             <asp:ImageButton
+                                ID="imgButtonFactura"
+                                runat="server"
+                                class="iconos"
+                                ImageUrl="~/img/factura.png"
+                                CommandName="Select"
+                                ToolTip="Seleccionar"
+                                OnClick="btnFactura_Click"></asp:ImageButton>
+                            <a href="#" style="align-content: center" class="nav-link px-2 text-white">Factura</a>
+                        </li>
+
+                        <li>
+                            <asp:ImageButton
                                 ID="ImageButton2"
                                 runat="server"
                                 class="iconos"

@@ -20,5 +20,6 @@ namespace Capa.Logica.Entidades
         public string DEPARTAMENTO { get; set; }
         public string DIRECCION { get; set; }
         public string NIT { get; set; }
+
     }
 }

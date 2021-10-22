@@ -163,6 +163,7 @@ namespace Capa.Logica.Clases
                                                                       where q.PER_Identificacion == id
                                                                       select new Interfaces.clientesInterface
                                                                       {
+                                                                          Persona = q.PER_Persona,
                                                                           PrimerNombre = q.PER_PrimerNombre,
                                                                           SegundoNombre = q.PER_SegundoApellido,
                                                                           PrimerApellido = q.PER_PrimerApellido,
@@ -176,6 +177,40 @@ namespace Capa.Logica.Clases
                                                                           NIT = q.PER_NIT
 
                                                                       }).ToList();
+                    return objConsulta;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+        #region Consultar por nit
+        public Interfaces.clientesInterface consultarUnClienteXNit(string nit)
+        {
+            try
+            {
+                using (Entidades.CxCEntities1 objEntidad = new Entidades.CxCEntities1())
+                {
+                    Interfaces.clientesInterface objConsulta = (from q in objEntidad.CXC_PERSONA
+                                                                      where q.PER_NIT == nit
+                                                                      select new Interfaces.clientesInterface
+                                                                      {
+                                                                          PrimerNombre = q.PER_PrimerNombre,
+                                                                          SegundoNombre = q.PER_SegundoApellido,
+                                                                          PrimerApellido = q.PER_PrimerApellido,
+                                                                          SegundoApellido = q.PER_SegundoApellido,
+                                                                          Identificacion = q.PER_Identificacion,
+                                                                          FechaNacimiento = (DateTime)q.PER_FechaNacimiento,
+                                                                          Telefono = q.PER_Telefono,
+                                                                          Departamento = q.PER_Departamento,
+                                                                          Municipio = q.PER_Municipio,
+                                                                          Direccion = q.PER_Direccion,
+                                                                          NIT = q.PER_NIT
+
+                                                                      }).First();
                     return objConsulta;
                 }
             }

@@ -8,6 +8,7 @@ namespace Capa.Logica.Interfaces
 {
     public class clientesInterface
     {
+        public int Persona { get; set; }
         public string PrimerNombre { get; set; }
         public string SegundoNombre { get; set; }
         public string PrimerApellido { get; set; }
@@ -19,5 +20,7 @@ namespace Capa.Logica.Interfaces
         public string Municipio { get; set; }
         public string Direccion { get; set; }
         public string NIT { get; set; }
+
+        public String nombreCompleto() { return PrimerNombre + " " + SegundoNombre + " " + PrimerApellido + " " + SegundoApellido; }
     }
 }

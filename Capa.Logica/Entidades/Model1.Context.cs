@@ -48,6 +48,7 @@ namespace Capa.Logica.Entidades
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<SEG_USUARIO> SEG_USUARIO { get; set; }
+
     
         public virtual ObjectResult<SP_RPT_CLIENTES_X_REGION_Result> SP_RPT_CLIENTES_X_REGION(string vTipPago)
         {
@@ -249,6 +250,7 @@ namespace Capa.Logica.Entidades
         }
     
         public virtual int SP_RPT_Pagos_x_RangoFecha(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -453,6 +455,7 @@ namespace Capa.Logica.Entidades
         }
     
         public virtual ObjectResult<SP_RPT_Pagos_x_RangoFecha3_Result> SP_RPT_Pagos_x_RangoFecha3(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipoPago)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -467,6 +470,7 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("vTipoPago", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_Pagos_x_RangoFecha3_Result>("SP_RPT_Pagos_x_RangoFecha3", fechaInicialParameter, fechaFinalParameter, vTipoPagoParameter);
+=
         }
     
         public virtual ObjectResult<SP_CNS_DETALLE_FACTURA_Result> SP_CNS_DETALLE_FACTURA(string vIdentificacion, string vNumero)
@@ -496,6 +500,7 @@ namespace Capa.Logica.Entidades
         }
     
         public virtual ObjectResult<SP_RPT_CREDITOS_CANCELADOS_Result> SP_RPT_CREDITOS_CANCELADOS(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -506,6 +511,7 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("FechaFinal", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_RPT_CREDITOS_CANCELADOS_Result>("SP_RPT_CREDITOS_CANCELADOS", fechaInicialParameter, fechaFinalParameter);
+
         }
     
         public virtual ObjectResult<SP_CNS_PAGO_Result> SP_CNS_PAGO(string vDocumento)
@@ -601,6 +607,7 @@ namespace Capa.Logica.Entidades
         }
     
         public virtual ObjectResult<spConsultaUno13_Result> spConsultaUno13(Nullable<System.DateTime> fechaInicial, Nullable<System.DateTime> fechaFinal, string vTipTransaccion)
+
         {
             var fechaInicialParameter = fechaInicial.HasValue ?
                 new ObjectParameter("FechaInicial", fechaInicial) :
@@ -628,6 +635,7 @@ namespace Capa.Logica.Entidades
                 new ObjectParameter("vPassw", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("SP_LOGIN", vUsuarioParameter, vPasswParameter);
+
         }
     
         public virtual int SP_UPD_CLIENTES(string vPrimerNombre, string vSegundoNombre, string vPrimerApellido, string vSegundoApellido, string vIdentificacion, Nullable<System.DateTime> vFechaNacimiento, string vTelefono, string vDepartamento, string vMunicipio, string vDireccion, string vNIT, string vRegion)
@@ -682,5 +690,6 @@ namespace Capa.Logica.Entidades
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPD_CLIENTES", vPrimerNombreParameter, vSegundoNombreParameter, vPrimerApellidoParameter, vSegundoApellidoParameter, vIdentificacionParameter, vFechaNacimientoParameter, vTelefonoParameter, vDepartamentoParameter, vMunicipioParameter, vDireccionParameter, vNITParameter, vRegionParameter);
         }
+
     }
 }

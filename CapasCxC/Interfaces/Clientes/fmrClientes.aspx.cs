@@ -32,23 +32,23 @@ namespace CapasCxC.Interfaces.Clientes
 
 
         //        protected void SubmitAppraisalGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        protected void cambiodDePagina(object sender, GridViewPageEventArgs e)
-            //con este metodo se controla el cambio de pagina en el gridview
-        {
-            gvClientes.PageIndex = e.NewPageIndex;
-            BindGrid();
-            //gvClientes.DataBind();
-        }
-        //-----------------------------------------------------
-        protected void OrdenarPagina(object sender, GridViewSortEventArgs e)
-        {
+            protected void cambiodDePagina(object sender, GridViewPageEventArgs e)
+                //con este metodo se controla el cambio de pagina en el gridview
+            {
+                gvClientes.PageIndex = e.NewPageIndex;
+                BindGrid();
+                //gvClientes.DataBind();
+            }
+            //-----------------------------------------------------
+            protected void OrdenarPagina(object sender, GridViewSortEventArgs e)
+            {
 
             
                 
 
             
 
-        }
+            }
 
 
 
