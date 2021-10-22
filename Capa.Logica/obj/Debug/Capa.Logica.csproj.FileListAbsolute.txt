@@ -49,4 +49,3 @@ C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCod
 C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\prueba\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.csproj.CopyComplete
 C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\prueba\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.dll
 C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\prueba\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.pdb
-C:\Users\CRISTHIAN\OneDrive - Universidad Mariano Gálvez\Analisis 2\2021\gitCode\prueba\ProyectoCxC\Capa.Logica\obj\Debug\Capa.Logica.csprojAssemblyReference.cache
