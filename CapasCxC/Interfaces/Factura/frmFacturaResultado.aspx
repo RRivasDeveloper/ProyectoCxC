@@ -18,6 +18,7 @@
                 <asp:ImageButton runat="server" ID="inicioLogo" ImageUrl="~/img/Logo.jpeg" AlternateText="Inicio" class="iconos" />
                 <a href="frmInicio.aspx" class="nav-link px-2 text-secondary"><strong>Inicio</strong></a>
                 <ul class="nav col-21 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
                     
                     <li>
                         <asp:ImageButton
