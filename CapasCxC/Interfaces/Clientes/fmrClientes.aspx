@@ -8,7 +8,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/misEstilos.css" rel="stylesheet" />
     <link rel="shortcut icon" href="../../img/LogoIcon.ico" type="image/x-icon" />
-    <title>Cuentas por Cobrar</title>
+    <title>Clientes</title>
 
 </head>
 <body>
@@ -53,30 +53,30 @@
                 <label><strong>Consulta</strong></label>
                 <div class="container-fluid">
                     <a href="#" class="nav-link d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/cpc.png" alt="" class="iconos">
+                        <img src="/img/cpc.png" alt="" class="iconos"/>
                         <strong></strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li>
                             <a class="dropdown-item" href="#">Región Geografica</a>
-                            <asp:ImageButton runat="server" ID="ImageButton3" ImageUrl="~/img/gt.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
+                            <asp:ImageButton runat="server" ID="ImageButton3" ImageUrl="~/img/gt.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos fondoicono" />
 
                         </li>
                         <li>
                             <a class="dropdown-item" href="#">Vigentes Al Día</a>
-                            <asp:ImageButton runat="server" ID="ImageButton4" ImageUrl="~/img/Vigente.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
+                            <asp:ImageButton runat="server" ID="ImageButton4" ImageUrl="~/img/Vigente.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos fondoicono" />
 
                         </li>
                         <li><a class="dropdown-item" href="#">En Mora</a>
-                            <asp:ImageButton runat="server" ID="ImageButton5" ImageUrl="~/img/moroso.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
+                            <asp:ImageButton runat="server" ID="ImageButton5" ImageUrl="~/img/moroso.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos fondoicono" />
 
                         </li>
                         <li><a class="dropdown-item" href="#">Sin Deuda</a>
-                            <asp:ImageButton runat="server" ID="ImageButton6" ImageUrl="~/img/sindeuda.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
+                            <asp:ImageButton runat="server" ID="ImageButton6" ImageUrl="~/img/sindeuda.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos fondoicono" />
 
                         </li>
                         <li>
-                            <hr class="dropdown-divider">
+                            <hr class="dropdown-divider"/>
                         </li>
                         <li><a class="dropdown-item" href="#">Imprimir</a>
                             <asp:ImageButton runat="server" ID="btn_Imprimir" ImageUrl="~/img/imprimir.png" AlternateText="Consulta de Clientes" OnClick="Consultas_Click" class="iconos" />
@@ -98,7 +98,7 @@
                                     <asp:ImageButton
                                         ID="ImageButton1"
                                         runat="server"
-                                        Width="50"
+                                        Width="100"
                                         ImageUrl="~/img/buscar.png"
                                         CommandName="Select"
                                         ToolTip="Seleccionar"
@@ -114,7 +114,7 @@
                         BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px"
                         CellPadding="3" CellSpacing="2" AllowSorting="True" PageSize="20">
                         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                        <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#c9640a" Font-Bold="True" ForeColor="White" />
                         <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
                         <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
                         <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />

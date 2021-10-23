@@ -58,6 +58,23 @@
     color: white;
 }
 
+.menu-desplegable-color {
+    color: aliceblue;
+    background-color: #A55129;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+.menu-desplegable-color-bootstrap {
+    color: #dee2e6;
+    background-color: #343a40;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+.fondoicono {
+    background-color: #FFF7E7;
+}
+.transparente{
+    opacity:0.7;
+}
+
 /*
 saddlebrown, darkgoldenrod, maroon
 */
